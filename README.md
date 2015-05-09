@@ -45,7 +45,7 @@ In Folgenden Revisionen werden einige neue Features benötigt, unter anderem:
 ---
 
 ## Entity Relationship Modell
-![Alt foobaz](virtapi.svg)
+![Alt foobaz](https://cdn.rawgit.com/bastelfreak/virtapi/master/virtapi.svg)
 ---
 
 ## Use Cases

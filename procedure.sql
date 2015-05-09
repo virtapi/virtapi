@@ -88,9 +88,8 @@ BEGIN
         
         SET ipv4_d = ipv4_d + 1;
     
-    SET ipv4 = CAST(INET6_ATON(CONCAT(ipv4_a,'.',ipv4_b,'.',ipv4_c,'.',ipv4_d)) AS BINARY(4));
-    SET ipv6 = UUID();
-    
+   SET ipv4 = CAST(INET6_ATON(CONCAT(ipv4_a,'.',ipv4_b,'.',ipv4_c,'.',ipv4_d)) AS BINARY(4));
+  SET ipv6 = CONCAT(ipv4_a,ipv4_b,ipv4_c,ipv4_d);
         INSERT INTO `node` 
       (`ipv4_addr_ext`, `ipv6_addr_ext`, `ipv4_gw_ext`, 
        `ipv6_gw_ext`, `bond_interfaces`, `fqdn`, 

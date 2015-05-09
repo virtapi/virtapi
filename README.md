@@ -11,6 +11,7 @@ Tim Meusel – TI114 – Sommer 2015
   - Netzwerkinterfaces
   - Storage
   - ToDo
++ Anforderungen
 + Entity Relationship Modell
 + Use Cases
   - Definieren von Virtualisierungstechniken
@@ -44,8 +45,16 @@ In Folgenden Revisionen werden einige neue Features benötigt, unter anderem:
 
 ---
 
+## Anforderungen
++ die API muss mit einem Framework erstellt werden (Rails, Flask, Django)
++ JSON und HTML Support
++ MySQL min. in Version 5.6 (Support für INET6_ATON)
+
+---
+
 ## Entity Relationship Modell
 ![Alt foobaz](https://cdn.rawgit.com/bastelfreak/virtapi/master/virtapi.svg)
+
 ---
 
 ## Use Cases

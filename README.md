@@ -42,6 +42,7 @@ In Folgenden Revisionen werden einige neue Features benötigt, unter anderem:
 + Dediziertes Backupnetz an jedem Hypervisor
 + Dediziertes Storagenetz an jedem Hypervisor
 + Snapshots von Storage Einheiten
++ Procedure create_virt_nodes absichern (Infos in der .sql)
 
 ---
 

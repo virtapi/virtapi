@@ -46,7 +46,8 @@ In Folgenden Revisionen werden einige neue Features benötigt, unter anderem:
 + Dediziertes Storagenetz an jedem Hypervisor
 + Snapshots von Storage Einheiten
 + Procedure create_virt_nodes absichern (Infos in der .sql)
-+ Helmut sagte: spricht etwas gegen OpenSwitch (Tim sagt: Helumt mach doch einen PR)
++ text zu installimage ergänzen
++ [Open vSwitch](http://openvswitch.org/) ist ein Virtual Switch mit diversen sehr coolen Features. Unter anderem VLANs, Port-Mirroring, sFlow. OpenFlow, GRE/IPSec Tunnel. Leider ist es auch sehr komplex. Es muss noch evaluiert werden ob sich der Aufwand lohnt ober ob man die benötigten Features nicht anderweitig genauso implementieren kann (bridges + VXLAN).
 
 ---
 

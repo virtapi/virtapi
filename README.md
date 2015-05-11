@@ -68,7 +68,7 @@ In der [Projektbeschreibung](#Projektbeschreibung) und in den [Anforderungen](#A
 ---
 
 ## Entity Relationship Modell
-![Alt foobaz](https://cdn.rawgit.com/bastelfreak/virtapi/master/virtapi.svg)
+![Alt foobaz](https://rawgit.com/bastelfreak/virtapi/master/virtapi.svg)
 
 ---
 

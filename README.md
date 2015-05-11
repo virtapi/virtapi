@@ -18,6 +18,7 @@ Tim Meusel – TI114 – Sommer 2015
 + [Alternativen](#alternativen)
   - [OpenStack](#openstack)
   - [OpenNebula](#opennebula)
+  - [Archipel](#archipel)
 + [Entity Relationship Modell](#entity-relationship-modell)
 + [Use Cases](#use-cases)
   - [Definieren von Virtualisierungstechniken](#definieren-von-virtualisierungstechniken)
@@ -83,6 +84,9 @@ In der [Projektbeschreibung](#Projektbeschreibung) und in den [Anforderungen](#A
 
 ### OpenNebula
 [OpenNebula](http://opennebula.org/) nennt sich selbst "Enterprise Ready", benutzen allerdings xml concats in c++ anstatt einer XML Bibliothek. Das Interface bietet eine sehr statische Infrastruktur welche schlecht anpassbar ist. Das Logging enthält größtenteils interne Informationen und wenig nützliches. Generell ist OpenNebula eine sehr zusammengeschusterte Lösung aus verschiedenen Sprachen (unter anderem Ruby und C++). Um Änderungen an einer bereits laufenden VM zu machen (z.B. die KVM Clock durchreichen) muss diese in der Regel gestoppt werden und die DB von Hand editiert werden (also mysql CLI).
+
+### Archipel
+[Archipel](http://archipelproject.org/) ist eine Webapp welche komplett im Browser läuft und via websockets mit dem Server kommuniziert. Es besitzt einen Agent welcher auf jedem Hypervisor laufen muss, diese kommunizieren via XMPP. Leider hat Archipel nur einen Entwickler, das Projekt kommt somit zu langsam vorran und weist zu viele Bugs auf. 
 
 ---
 

@@ -46,6 +46,7 @@ In Folgenden Revisionen werden einige neue Features benötigt, unter anderem:
 + Dediziertes Storagenetz an jedem Hypervisor
 + Snapshots von Storage Einheiten
 + Procedure create_virt_nodes absichern (Infos in der .sql)
++ Helmut sagte: spricht etwas gegen OpenSwitch (Tim sagt: Helumt mach doch einen PR)
 
 ---
 

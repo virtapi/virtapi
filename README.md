@@ -6,8 +6,8 @@ Tim Meusel – TI114 – Sommer 2015
 
 ## Inhaltsverzeichnis
 + [Projektbeschreibung](#projektbeschreibung)
-  -[Hypervisor](#hypervisor)
-  -[Cloud Instanzen](#cloud-instanzen)
+  - [Hypervisor](#hypervisor)
+  - [Cloud Instanzen](#cloud-instanzen)
   - [Netzwerkinterfaces](#netzwerkinterfaces)
   - [Storage](#storage)
   - [ToDo](#todo)

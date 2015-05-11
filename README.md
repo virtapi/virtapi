@@ -13,6 +13,7 @@ Tim Meusel – TI114 – Sommer 2015
   - [Cloud Instanzen](#cloud-instanzen)
   - [Netzwerkinterfaces](#netzwerkinterfaces)
   - [Storage](#storage)
+  - [Node Interaktion](#node-interaktion)
   - [ToDo](#todo)
 + [Anforderungen](#anforderungen)
 + [Alternativen](#alternativen)
@@ -54,6 +55,9 @@ Der Name eines virtuellen Interfaces (Tabelle vm_interface) setzt sich zusammen 
 ### Storage
 Ein Storage (Tabelle storage) ist immer an eine Instanz gebunden und kann nicht von mehreren Instanzen parallel genutzt werden. Mehrere Storage Typen sind möglich (Tabelle storage_type), z.B. LVM oder QCOW2. Jede Instanz kann beliebig viele Storage Einheiten von beliebigen Typen besitzen. Zu jeder Einheit gehört eine definierte Größe (Attribut size). Um auch hier eine Ressourceneinhaltung zu gewähren können diverse Limits gesetzt werden (Attribute write_iops_limit, read_iops_limit, write_mbps_limit, read_mbps_limit). Typenspezifische Attribute werden in den Tabellen storage_TYP gespeichert, diese besitzen die gleiche Id wie die eigentliche Entity in der Tabelle storage. Um auf die verschiedenen Kundenwünsche einzugehen (besonders schnellen oder sicheren Storage) kann die Cacheoption (Attribut cache_option_id und Tabelle cache_option) pro Storage Einheit gesetzt werden.
 
+### Node Interaktion
+In den [Anforderungen](#anforderungen) ist definiert wie User/andere Programme mit der API kommunizieren können. Die API muss aber auch eigenständig auf Nodes agieren. [Hier](https://blog.bastelfreak.de/?p=1212) wurde ausführlich beschrieben warum Konstrukte via SSH absolut unpraktikabel sind und welche Alternativen man hat. Ein Deployment via Puppet bietet sich hier an. Die API muss also in der Lage sein als [ENC](https://docs.puppetlabs.com/guides/external_nodes.html) zu dienen.
+
 ### ToDo
 In Folgenden Revisionen werden einige neue Features benötigt, unter anderem:
 + Zeitgesteuerte und planbare Backups pro Instanz
@@ -83,7 +87,7 @@ In der [Projektbeschreibung](#Projektbeschreibung) und in den [Anforderungen](#A
 [Openstack](https://www.openstack.org/) ist ein sehr mächtiges Framework für die Verwaltung einer Public Cloud Infrastruktur. Leider ist es nicht auf Skalierbarkeit ausgelegt, bietet einige SPOFs und ist generell sehr komplex.
 
 ### OpenNebula
-[OpenNebula](http://opennebula.org/) nennt sich selbst "Enterprise Ready", benutzen allerdings xml concats in c++ anstatt einer XML Bibliothek. Das Interface bietet eine sehr statische Infrastruktur welche schlecht anpassbar ist. Das Logging enthält größtenteils interne Informationen und wenig nützliches. Generell ist OpenNebula eine sehr zusammengeschusterte Lösung aus verschiedenen Sprachen (unter anderem Ruby und C++). Um Änderungen an einer bereits laufenden VM zu machen (z.B. die KVM Clock durchreichen) muss diese in der Regel gestoppt werden und die DB von Hand editiert werden (also mysql CLI).
+[OpenNebula](http://opennebula.org/) nennt sich selbst "Enterprise Ready", benutzen allerdings xml concats in c++ anstatt einer XML Bibliothek. Das Interface bietet eine sehr statische Infrastruktur welche schlecht anpassbar ist. Das Logging enthält größtenteils interne Informationen und wenig nützliches. Generell ist OpenNebula eine sehr zusammengeschusterte Lösung aus verschiedenen Sprachen (unter anderem Ruby und C++). Um Änderungen an einer bereits laufenden VM zu machen (z.B. die KVM Clock durchreichen) muss diese in der Regel gestoppt werden und die DB von Hand editiert werden (also mysql CLI). Zu der schlechten Code Qualität kommt die Tatsache, dass einige Basis Features einfach nicht funktionieren (Storage-/CD-Hotplug). Features Requests werden de öfteren im Backlog nach hinten geschoben.
 
 ### Archipel
 [Archipel](http://archipelproject.org/) ist eine Webapp welche komplett im Browser läuft und via websockets mit dem Server kommuniziert. Es besitzt einen Agent welcher auf jedem Hypervisor laufen muss, diese kommunizieren via XMPP. Leider hat Archipel nur einen Entwickler, das Projekt kommt somit zu langsam vorran und weist zu viele Bugs auf. 

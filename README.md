@@ -77,6 +77,8 @@ In Folgenden Revisionen werden einige neue Features benötigt, unter anderem:
 + JSON und HTML Support
 + MySQL min. in Version 5.6 (Support für INET6_ATON) oder Postgres
 + Die mit dieser API erstellte Virtualisierungsumgebung sollte keine SPOFs bereitstellen (siehe Neutron Node bei OPenStack)
++ Puppet ENC Support (siehe [Node Interaktion](#node-interaktion))
++ Support für verschiedene Hypervisor + lokalen und verteilten Storage
 
 ---
 

@@ -12,6 +12,9 @@ Tim Meusel – TI114 – Sommer 2015
   - Storage
   - ToDo
 + Anforderungen
++ Alternativen
+  - OpenStack
+  - OpenNebula
 + Entity Relationship Modell
 + Use Cases
   - Definieren von Virtualisierungstechniken
@@ -47,9 +50,20 @@ In Folgenden Revisionen werden einige neue Features benötigt, unter anderem:
 ---
 
 ## Anforderungen
-+ die API muss mit einem Framework erstellt werden (Rails, Flask, Django)
++ die API muss mit einem Opensource Framework erstellt werden (z.B. Rails, Flask, Django)
 + JSON und HTML Support
-+ MySQL min. in Version 5.6 (Support für INET6_ATON)
++ MySQL min. in Version 5.6 (Support für INET6_ATON) oder Postgres
+
+---
+
+## Alternativen
+In der [Projektbeschreibung](#Projektbeschreibung) und in den [Anforderungen](#Anforderungen) sind bereits alle benötigten Features erklärt. Nachfolgend eine Auflistung von Alternativen Interfaces/APIs sowie ein Vergleich warum diese ungeeignet sind.
+
+### OpenStack
+[Openstack](https://www.openstack.org/) ist ein sehr mächtiges Framework 
+
+### OpenNebula
+
 
 ---
 
@@ -67,3 +81,24 @@ In Folgenden Revisionen werden einige neue Features benötigt, unter anderem:
 ### Hinzufügen eines IPv4 Netzes
 
 ### Eintragen einer virtuellen Maschine
+
+### Übersicht aller Hypervisor + deren unterstützten Techniken
+Dies ist notwendig um einen schnellen Überblick über seine Hypervisor sowie deren supportete Techniken zu bekommen.
+```sql
+SELECT
+  `node`.`FQDN`, `virt_method`.`name` -- specify the tables and attributes you want to have 
+FROM
+  `node` -- specify the tables again
+INNER JOIN
+  `virt_node` -- where do we want to join
+ON
+  `node`.`id` = `virt_node`.`node_id` -- which attributes should be the same
+INNER JOIN -- first join for N:M, check PK of first table with N:M table
+  `node_method`
+ON
+  `virt_node`.`id` = `node_method`.`virt_node_id`
+INNER JOIN -- second join for N:M, check N:M table with PK of second table
+  `virt_method`
+ON
+  `node_method`.`virt_method_id` = `virt_method`.`id`;
+```

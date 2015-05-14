@@ -10,7 +10,7 @@ USE `virtapi`$$
 CREATE PROCEDURE `create_virt_nodes`(IN count INT)
 BEGIN
 DECLARE i INT DEFAULT 0;
-WHILE i < 100 DO
+WHILE i < count DO
   INSERT INTO `virt_node`
     (`local_storage_gb`, `local_storage_path`, `node_id`, `vg_name`)
   VALUES

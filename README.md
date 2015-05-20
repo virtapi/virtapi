@@ -56,7 +56,7 @@ Der Name eines virtuellen Interfaces (Tabelle vm_interface) setzt sich zusammen 
 Ein Storage (Tabelle storage) ist immer an eine Instanz gebunden und kann nicht von mehreren Instanzen parallel genutzt werden. Mehrere Storage Typen sind möglich (Tabelle storage_type), z.B. LVM oder QCOW2. Jede Instanz kann beliebig viele Storage Einheiten von beliebigen Typen besitzen. Zu jeder Einheit gehört eine definierte Größe (Attribut size). Um auch hier eine Ressourceneinhaltung zu gewähren können diverse Limits gesetzt werden (Attribute write_iops_limit, read_iops_limit, write_mbps_limit, read_mbps_limit). Typenspezifische Attribute werden in den Tabellen storage_TYP gespeichert, diese besitzen die gleiche Id wie die eigentliche Entity in der Tabelle storage. Um auf die verschiedenen Kundenwünsche einzugehen (besonders schnellen oder sicheren Storage) kann die Cacheoption (Attribut cache_option_id und Tabelle cache_option) pro Storage Einheit gesetzt werden.
 
 ### Node Interaktion
-In den [Anforderungen](#anforderungen) ist definiert wie User/andere Programme mit der API kommunizieren können. Die API muss aber auch eigenständig auf Nodes agieren. [Hier](https://blog.bastelfreak.de/?p=1212) wurde ausführlich beschrieben warum Konstrukte via SSH absolut unpraktikabel sind und welche Alternativen man hat. Ein Deployment via Puppet bietet sich hier an. Die API muss also in der Lage sein als [ENC](https://docs.puppetlabs.com/guides/external_nodes.html) zu dienen. Alternativ wird Salt supported und die API muss als [external_pillar](http://docs.saltstack.com/en/latest/topics/development/external_pillars.html) verfügbar sein.
+In den [Anforderungen](#anforderungen) ist definiert wie User/andere Programme mit der API kommunizieren können. Irgendwie müssen die Daten in der Datenbank aber auch auf den physischen Servern umgesetzt werden. [Hier](https://blog.bastelfreak.de/?p=1212) wurde ausführlich beschrieben warum Konstrukte via SSH absolut unpraktikabel sind und welche Alternativen man hat. Ein Deployment via [Puppet](https://puppetlabs.com/puppet/what-is-puppet) oder [Salt](http://saltstack.com/) bietet sich hier an. Die API muss also in der Lage sein als [ENC](https://docs.puppetlabs.com/guides/external_nodes.html) und als externe [Hiera](https://docs.puppetlabs.com/hiera/) Quelle (via [hiera-rest](https://github.com/binford2k/hiera-rest) oder [heira-http](https://github.com/crayfishx/hiera-http)) zu dienen. Alternativ wird Salt supported und die API muss als [external_pillar](http://docs.saltstack.com/en/latest/topics/development/external_pillars.html) verfügbar sein.
 
 ### ToDo
 In Folgenden Revisionen werden einige neue Features benötigt, unter anderem:
@@ -70,6 +70,7 @@ In Folgenden Revisionen werden einige neue Features benötigt, unter anderem:
 + Ceph Tabellen sowie Rollenbeschreibung erweitern
 + Ceph secret Handling implementieren (Wie funktioniert das)?
 + Wie funktionieren external_pillars in Salt?
++ unterschied zwischen ENC und hiera lookup?
 + Es sollte möglich sein ein (golden) Image in mehreren VMs parallel einzubinden
 
 ---

@@ -2,6 +2,10 @@
 
 Tim Meusel – TI114 – Sommer 2015
 
+Contributors:
++ Sebastian Rakel
++ Silvio Knizek
+
 ---
 
 ## Inhaltsverzeichnis

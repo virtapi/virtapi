@@ -27,7 +27,7 @@ Tim Meusel – TI114 – Sommer 2015
   - [Hinzufügen eines IPv4 Netzes](#hinzuf%C3%BCgen-eines-ipv4-netzes)
   - [Eintragen einer virtuellen Maschine](#eintragen-einer-virtuellen-maschine)
   - [Installation einer VM](#installation-einer-vm)
-
++ [Kontakt](#kontakt)
 ---
 
 ## Projektbeschreibung
@@ -141,3 +141,8 @@ Dies wird via [installimage](http://wiki.hetzner.de/index.php/Installimage) impl
 + VM rebooten
 + VM bootet Live Linux
 + via kernel parameter wird ein autostart-script angegeben (das installimage) + config (welches OS,...)
+
+---
+
+## Kontakt
+Auf freenode gibt es den IRC Channel #virtapi, hier findet man immer einen der Entwickler und kann Bugs/Features diskutieren.

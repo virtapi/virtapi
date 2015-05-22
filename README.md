@@ -28,6 +28,7 @@ Tim Meusel – TI114 – Sommer 2015
   - [Eintragen einer virtuellen Maschine](#eintragen-einer-virtuellen-maschine)
   - [Installation einer VM](#installation-einer-vm)
 + [Kontakt](#kontakt)
++ [Links und quellen](#links-und-quellen)
 
 ---
 
@@ -147,3 +148,8 @@ Dies wird via [installimage](http://wiki.hetzner.de/index.php/Installimage) impl
 
 ## Kontakt
 Auf freenode gibt es den IRC Channel #virtapi, hier findet man immer einen der Entwickler und kann Bugs/Features diskutieren.
+
+---
+
+## Links und Quellen
++ [API Design Guide](https://github.com/interagent/http-api-design) basierend auf der Heroku Platform

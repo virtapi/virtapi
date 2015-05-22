@@ -153,3 +153,4 @@ Auf freenode gibt es den IRC Channel #virtapi, hier findet man immer einen der E
 
 ## Links und Quellen
 + [API Design Guide](https://github.com/interagent/http-api-design) basierend auf der Heroku Platform
++ [FileBin API](https://wiki.server-speed.net/projects/filebin/api)

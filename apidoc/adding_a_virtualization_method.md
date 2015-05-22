@@ -2,25 +2,25 @@
 ----
   Insert one new virtualization method into the database (e.g. KVM). Return code is the id of the new method.
 
-* ## URL
+* **URL**
 
   /virt_methods/
 
-* ## Method:
+* **Method:**
   
   `POST`
   
-*  ## URL Params
+* **URL Params**
 
-   ## Required:
+   **Required:**
  
    `name=[string]`
 
-   ## Optional:
+   **Optional:**
  
     None
 
-* ## Data Params
+* **Data Params**
 
     None
 

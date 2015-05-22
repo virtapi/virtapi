@@ -1,6 +1,6 @@
 ## adding a virtualization method
 ----
-  Insert one new virtualization method into the database (e.g. KVM). Return code is the id of the new method.
+  Insert one new virtualization method into the database (e.g. KVM). Return content is the id of the new method.
 
 * **URL**
 

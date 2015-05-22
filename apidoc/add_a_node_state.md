@@ -1,4 +1,4 @@
-## adding a node state
+## Add a node state
 ----
   Insert one new node state into the database (e.g. "running") and a description of it. Return content is the id of the new state.
 

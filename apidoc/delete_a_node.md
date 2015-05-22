@@ -1,24 +1,25 @@
-## adding a virtualization method
+## Delete a node
 ----
-  Insert one new virtualization method into the database (e.g. KVM). Return content is the id of the new method.
+  Delete a specific node. He is referenced via his id or FQDN
 
 * **URL**
 
-  /virt_methods/
+  /nodes/:id
+  /node/:fqdn
 
 * **Method:**
   
-  `POST`
+  `DELETE`
   
 * **URL Params**
 
    **Required:**
  
-   `name=[string]`
+   `fqdn=[string]` or `id=[int]`
 
    **Optional:**
- 
-    None
+
+    Node
 
 * **Data Params**
 
@@ -45,4 +46,4 @@
 
 
 * **Notes:**
-
+This will also delete all referenced resources based on his roles. For example all local saved virtual maschines.

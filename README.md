@@ -83,9 +83,11 @@ In Folgenden Revisionen werden einige neue Features benötigt, unter anderem:
 ---
 
 ## Anforderungen
++ Die API muss RESTfull complaint sein
++ Die API muss synchron sein (Sie bestätigt das erfolgreiche speichern eines Requests, nicht die erfolgreiche Annahme)
 + die API muss mit einem Opensource Framework erstellt werden (z.B. Rails, Flask, Django)
 + Die API muss via interaktiver Shell bedienbar sein (z.B. irb/pry)
-+ JSON und HTML Support
++ JSON, MessagePack und HTML Support
 + MySQL min. in Version 5.6 (Support für INET6_ATON) oder Postgres
 + Die mit dieser API erstellte Virtualisierungsumgebung sollte keine SPOFs bereitstellen (siehe Neutron Node bei OPenStack)
 + Puppet ENC/Hiera und Salts external Pillar Support (siehe [Node Interaktion](#node-interaktion))

@@ -74,11 +74,13 @@ In Folgenden Revisionen werden einige neue Features benötigt, unter anderem:
 + Wie funktionieren external_pillars in Salt?
 + unterschied zwischen ENC und hiera lookup?
 + Es sollte möglich sein ein (golden) Image in mehreren VMs parallel einzubinden
++ node.bond_interfaces normalisieren
 
 ---
 
 ## Anforderungen
 + die API muss mit einem Opensource Framework erstellt werden (z.B. Rails, Flask, Django)
++ Die API muss via interaktiver Shell bedienbar sein (z.B. irb/pry)
 + JSON und HTML Support
 + MySQL min. in Version 5.6 (Support für INET6_ATON) oder Postgres
 + Die mit dieser API erstellte Virtualisierungsumgebung sollte keine SPOFs bereitstellen (siehe Neutron Node bei OPenStack)

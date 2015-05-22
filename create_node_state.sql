@@ -13,7 +13,7 @@ DELETE FROM `node_state`;
 ALTER TABLE `node_state` AUTO_INCREMENT = 1;
 
 INSERT INTO `node_state` 
-  (`state_name`, `description`) 
+  (`name`, `description`) 
 VALUES 
   ('stopped', 'node is stopped'),
   ('running', 'node is running');

@@ -5,6 +5,7 @@
 * **URL**
 
   /vm_states/:id
+
   /vm_states/:name
 
 * **Method:**
@@ -35,17 +36,20 @@
   
 
   * **Code:** 200
+
     **Content:** `{ id : 42 }`
  
 * **Error Response:**
 
 
-  * **Code:** 401 UNAUTHORIZED <br />
+  * **Code:** 401 UNAUTHORIZED
+
     **Content:** `{ error : "Log in" }`
 
   OR
 
-  * **Code:** 422 UNPROCESSABLE ENTRY <br />
+  * **Code:** 422 UNPROCESSABLE ENTRY
+
     **Content:** `{ error : "Email Invalid" }`
 
 * **Sample Call:**

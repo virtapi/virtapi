@@ -83,7 +83,7 @@ In Folgenden Revisionen werden einige neue Features benötigt, unter anderem:
 ---
 
 ## Anforderungen
-+ Die API muss RESTfull complaint sein
++ Die API muss das REST Programmierparadigma implementieren
 + Die API muss synchron sein (Sie bestätigt das erfolgreiche speichern eines Requests, nicht die erfolgreiche Annahme)
 + die API muss mit einem Opensource Framework erstellt werden (z.B. Rails, Flask, Django)
 + Die API muss via interaktiver Shell bedienbar sein (z.B. irb/pry)

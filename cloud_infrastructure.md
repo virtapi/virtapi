@@ -1,7 +1,5 @@
 #Implementing a KVM based Cloud Infrastructure
 
----
-
 QEMU is one of the industry standard hypervisors for full hardware virtualization. It is licensed under the GNU GPL2, a common open source license and used by SUSE and RedHat in there cloud products. QEMUs KVM addon allows for paravirtualized hardware instead of fully emulating it. Due to the paravirualization the overhead compared to real hardware is only around five to ten percent.
 
 A cloud infrastructure with QEMU/KVM offers several features:

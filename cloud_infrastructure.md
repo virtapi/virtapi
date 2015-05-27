@@ -21,6 +21,8 @@ It currently coffers:
 + A list of requirements for the API itself and the created infrastructure
 + A comparsion of alternative projects and an explanation why they aren't suitable for big cloud environments
 
-This setup was acquired and reviewed by multiple system engineers and currently covers all their needs. The focus is on managing a QEMU platform with  puppet or salt.
+This setup was acquired and reviewed by multiple system engineers and currently covers all their needs. The focus is on managing a QEMU platform with puppet or salt. Other hypervisors are also implemented to support a long-range migration from them to QEMU.
+
+QEMU supports a wide range of blockdevice types, the local ones are mostly QCOW2, RAW images or LVM2 volumes. The API will support them and Ceph for RAW images. Ceph is a distributed block and object store. It works fine with 10GBit or multiple 1GBit links, you can even install it beside QEMU on the same physical host system. Compared to dedicated ceph nodes, this will reduce the needed network ports by 50%. Ceph offers a scaleable and fault tolerant storage. It is easy to increase the storage amount or the IOPS by adding more OSDs or journal SSDs. Also VM migration takes less time because you only need to sync the virtual memory and not the whole local storage. compared to local storage on multiple hypervisors, ceph is able to use the harddisks and SSDs more efficient. A block device is divied into multiple parts, they are distributed across the whole cluster which results in a consistent harddisk/SSD allocation.
 
 In my opinion, it should be possible to develop this API including the cloud infrastrucute with two developers and one or two system engineers in 8 weeks. This should be enough time to develop a working environment that is able to deploy and modify virtul maschines via a RESTfull API or the corresponding webinterface.

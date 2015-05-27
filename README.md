@@ -37,7 +37,7 @@ Contributors:
 ---
 
 ## Projektbeschreibung
-Auf Basis von Open-Source-Software soll eine API erstellt werden. Diese soll eine automatisierte Orchestrierung einer dynamischen Cloud Infrastruktur ermöglichen. Verwaltet werden sollen zum einen die verschiedenen Hypervisor als auch die eigentlichen Cloud Instanzen sowie das Netzwerk. Um einen sicheren Betrieb der API zu gewährleisten wird diese redundant und skalierbar gebaut. Außerdem wird stark auf die IT-Sicherheit geachtet da die API nicht nur intern zu administration genutzt wird sondern Kunden darüber autark Änderungen Ihrer Instanzen triggern können.
+Auf Basis von Open-Source-Software soll eine API erstellt werden. Diese soll eine automatisierte Orchestrierung einer dynamischen Cloud Infrastruktur ermöglichen. Verwaltet werden sollen zum einen die verschiedenen Hypervisor als auch die eigentlichen Cloud Instanzen sowie das Netzwerk. Um einen sicheren Betrieb der API zu gewährleisten wird diese redundant und skalierbar gebaut. Außerdem wird stark auf die IT-Sicherheit geachtet da die API nicht nur intern zu administration genutzt wird sondern Kunden darüber autark Änderungen Ihrer Instanzen triggern können. Eine Beschreibung der Infrastruktur (auf Englisch) gibt es [hier](cloud_infrastructure.md).
 
 ### Node
 Ein Node (Tabelle node) bezeichnet immer einen physischen Server. Dieser besitzt verschidene wichtige Attribute (diverse IP-Adressen, fqdn...). Jeder Node kann mehrere Rollen implementieren welche unten aufgeführt sind. Jeder Node kann einen Rollentyp nur einmalig implementieren, die entsprechenden Tabellen der Rollen speichern die ID des Nodes. Jeder Node hat eine IPv4 + IPv6 Adresse.

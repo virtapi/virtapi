@@ -6,6 +6,7 @@ Contributors:
 + Sebastian Rakel
 + Silvio Knizek
 + Carsten Menne
++ Florian Pritz
 
 ---
 

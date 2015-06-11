@@ -3,10 +3,10 @@
 ### URLs
 
 The URLs for API endpoints start with 
-1. the base URL (`https://example.com`) followed by 
-2. `/api`,
-3. the version supported by the client (`/v.0.1.0`)and 
-4. the endpoint (`/some/endpoint`).
+1.  the base URL (`https://example.com`) followed by 
+2.  `/api`,
+3.  the version supported by the client (`/v.0.1.0`)and 
+4.  the endpoint (`/some/endpoint`).
 For example: `https://example.com/api/v1.0.0/some/endpoint`.
 
 The version number follows the [semantic versioning guidelines](http://semver.org/). The requested version number must be of the format `vX[.X[.X]]` with X being a positive integer. `v1` and `v1.0` will both be treated as `v1.0.0`.

@@ -2,9 +2,14 @@
 
 ### URLs
 
-The URLs for API endpoints start with the base URL followed by `/api/`, the version supported by the client and the endpoint. For example: `https://example.com/api/v1.0.0/some/endpoint`.
+The URLs for API endpoints start with 
+1. the base URL (`https://example.com`) followed by 
+2. `/api`,
+3. the version supported by the client (`/v.0.1.0`)and 
+4. the endpoint (`/some/endpoint`).
+For example: `https://example.com/api/v1.0.0/some/endpoint`.
 
-The version number follows the [semantic versioning guidelines](http://semver.org/). The requested version number must be of the format `vX[.X[.X]]` with X being a positive number. `v1` and `v1.0` will both be treated as `v1.0.0`.
+The version number follows the [semantic versioning guidelines](http://semver.org/). The requested version number must be of the format `vX[.X[.X]]` with X being a positive integer. `v1` and `v1.0` will both be treated as `v1.0.0`.
 
 The most recent API version is `v0.1.0`.
 
@@ -28,7 +33,7 @@ TODO
 
 ### Response structure
 
-Responses will always be of the form described as the value of the response variable below. Any reply not conforming to this format can be considered an error.
+Responses will always be in the form described as the value of the response variable below. Any reply not conforming to this format can be considered as an error.
 
 ```javascript
 // Type definitions

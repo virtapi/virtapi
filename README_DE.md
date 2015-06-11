@@ -46,7 +46,8 @@ Mithilfe von Open-Source-Software soll eine API erstellt werden, die eine automa
 Ein Node (Tabelle node) bezeichnet immer einen physischen Server. Dieser besitzt verschiedene wichtige Attribute (diverse IP-Adressen, fqdn...). Jeder Node kann mehrere unterschiedliche Rollen implementieren,  aber jede Rolle jeweils nur einmal. Um eine gute Erreichbarkeit zu gewährleisten, hat jeder Node je eine IPv4 und eine IPv6-Adresse.
 
 ### Rollen
-Jede sperfische Rolle hat einen Node. In einer Tabelle wird die ID des Nodes gespeichert.
+Jede spezifische Rolle hat einen Node. In einer Tabelle wird die ID des Nodes gespeichert.
+
 #### Hypervisor
 Wenn von einem Hypervisor (Tabelle **virt_node**) gesprochen wird, bezieht man sich meist auf das physische Hostsystem für eine beliebige Anzahl von Cloud-Instanzen (Nova Node im Openstack Jargon). Jeder Hypervisor kann verschiedene Virtualisierungstechniken nutzen (Tabelle **virt_method**, Zuordnung in  der Tabelle **node_method**). Lokaler Storage für virtuelle Maschinen kann über *thin provisioned LVM* oder als *raw/QCOW2 Image* (Attribut **local_storage_path**) bereitgestellt werden (Attribut **vg_name**). In beiden Fällen wird der lokal belegbare Speicher definiert (Attribut **local_storage_gb**). Der verteilte Storage (Tabelle **storage** und **storage_ceph**) steht in keiner Relation zum Hypervisor. Jeder Hypervisor muss sich in einem definierten Zustand befinden (Attribut **state_id**, Tabelle **node_state**). Beispiele dafür sind *Running*, *Offline*, *Repair* und *Maintenance*.
 

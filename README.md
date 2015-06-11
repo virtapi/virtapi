@@ -27,7 +27,7 @@ Contributors:
   - [OpenStack](#openstack)
   - [OpenNebula](#opennebula)
   - [Archipel](#archipel)
-+ [Entity Relationship Modell](#entity-relationship-modell)
++ [Entity Relationship Model](#entity-relationship-model)
 + [Use Cases](#use-cases)
   - [Add new virtualization technologies](#add-new-virtualization-technologies)
   - [Add new roles and corresponding nodes](#add-new-roles-and-correspondig-nodes)
@@ -41,7 +41,7 @@ Contributors:
 ---
 
 ## Project description
-This project aims to provide an open-source API to orchastrate a dynamic cloud infrastructure. The API is licensed under the [GNU Affero General Public License](LICENSE).The goal is to not only manage the host systems, but also the virtual machines itself and storage nodes (ceph) to provide an all-in-one solution that is flexible enough to handle several thousand machines and multiple different virtualization technologies. The API has a focus on secure development to provide an interface for direct customer contact. A description of one possible infrastructure design is available [here](cloud_infrastructure.md). Here is a detailed description for all resources (visualised at [Entity Relationship Modell](#entity-relationship-modell)):
+This project aims to provide an open-source API to orchastrate a dynamic cloud infrastructure. The API is licensed under the [GNU Affero General Public License](LICENSE).The goal is to not only manage the host systems, but also the virtual machines itself and storage nodes (ceph) to provide an all-in-one solution that is flexible enough to handle several thousand machines and multiple different virtualization technologies. The API has a focus on secure development to provide an interface for direct customer contact. A description of one possible infrastructure design is available [here](cloud_infrastructure.md). Here is a detailed description for all resources (visualised at [Entity Relationship Model](#entity-relationship-model)):
 
 ### Node
 Every physical server is described as a resource from the type node (table **node**). Each node has several attributes (multiple IP-Addresses, FQDN...). The IP attributes are mandatory. A node also needs a defined state (attribute **state_id**, table **node_state**), examples are "running", "in maintenance".
@@ -109,7 +109,7 @@ All requirements should be listed in the paragraphs [Project description](#proje
 
 ---
 
-## Entity Relationship Modell
+## Entity Relationship Model
 You can find the latest ERD from the current branch [here](database/images/virtapi.svg).
 
 ---

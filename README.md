@@ -13,9 +13,10 @@ Contributors:
 ## Contents
 + [Project description](#project-description)
   - [Node](#node)
-  - [Role hypervisor](#role-hypervisor)
-  - [Role Ceph OSD node](#role-ceph-osd-node)
-  - [Role Ceph Mon Node](#role-ceph-mon-node)
+  - [Roles](#roles)
+    - [Role hypervisor](#hypervisor)
+    - [Role Ceph OSD node](#ceph-osd-node)
+    - [Role Ceph Mon Node](#ceph-mon-node)
   - [Cloud instances](#cloud-instances)
   - [Network interfaces](#network-interfaces)
   - [Storage](#storage)
@@ -108,7 +109,7 @@ All requirements should be listed in the paragraphs [Project description](#proje
 
 ---
 
-## Entity Relationshop Modell
+## Entity Relationship Modell
 You can find the latest ERD from the current branch [here](database/images/virtapi.svg).
 
 ---

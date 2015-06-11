@@ -16,7 +16,7 @@ Behavior not documented here should not be expected to be available and may be c
 
 ### Unless stated otherwise ...
 
-Exceptions to the rules stated below will be mentioned in the documentation of affected each endpoint.
+Exceptions to the rules stated below will be mentioned in the documentation of each affected endpoint.
 
 - Access is only possible with authentication as described below.
 - Size values are expected and returned in bytes.
@@ -85,11 +85,11 @@ TODO: example
 
 ### Return objects
 
-To reduce backwards incompatible changes never return simple lists of values, always returns objects even if you only set one value in the object. 
+To prohibit too frequent backward incompatible changes never return simple lists of values, always return objects even if you only set one value in the object.
 
 ### Return keyed objects
 
-If you return an object with a unqiue key always use the value of this key as the key for the object. This allows for easier lookups if data is cross referenced and for easier testing since the test code can use the key to find data it expects. This is especially important if the data used by a test consists of more than one value because a list can be in arbitray order.
+If you return an object with a unqiue key always use the value of this key as the key for the object. This allows for easier lookups if data is cross referenced and for easier testing since the test code can use the key to find the data it expects. This is even more important if the data used by a test consists of more than one value because a list can be in arbitrary order.
 
 ```javascript
 response.data = {

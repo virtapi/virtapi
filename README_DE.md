@@ -40,7 +40,7 @@ Contributors:
 ---
 
 ## Projektbeschreibung
-Mithilfe von Open-Source-Software soll eine API erstellt werden, die eine automatisierte Orchestrierung einer dynamischen Cloud Infrastruktur ermöglicht. Verwaltet werden sollen zum einen die verschiedenen Hypervisor, die eigentlichen Cloud Instanzen und das Netzwerk. Um einen sicheren Betrieb der API zu gewährleisten, wird diese redundant und skalierbar gebaut. Außerdem wird stark auf die IT-Sicherheit geachtet, da die API nicht nur intern zur Administration genutzt wird, sondern auch Kunden darüber autark Änderungen ihrer Instanzen vornehmen können. Eine Beschreibung der Infrastruktur (auf Englisch) gibt es [hier](cloud_infrastructure.md).
+Mithilfe von Open-Source-Software soll eine API erstellt werden, die eine automatisierte Orchestrierung einer dynamischen Cloud Infrastruktur ermöglicht. Lizensiert sie die API unter der [GNU Affero General Public License](LICENSE).Verwaltet werden sollen zum einen die verschiedenen Hypervisor, die eigentlichen Cloud Instanzen und das Netzwerk. Um einen sicheren Betrieb der API zu gewährleisten, wird diese redundant und skalierbar gebaut. Außerdem wird stark auf die IT-Sicherheit geachtet, da die API nicht nur intern zur Administration genutzt wird, sondern auch Kunden darüber autark Änderungen ihrer Instanzen vornehmen können. Eine Beschreibung der Infrastruktur (auf Englisch) gibt es [hier](cloud_infrastructure.md).
 
 ### Node
 Ein Node (Tabelle node) bezeichnet immer einen physischen Server. Dieser besitzt verschiedene wichtige Attribute (diverse IP-Adressen, fqdn...). Jeder Node kann mehrere unterschiedliche Rollen implementieren,  aber jede Rolle jeweils nur einmal. Um eine gute Erreichbarkeit zu gewährleisten, hat jeder Node je eine IPv4 und eine IPv6-Adresse.
@@ -167,3 +167,4 @@ Auf freenode gibt es den IRC Channel #virtapi, hier findet man immer einen der E
 ## Links und Quellen
 + [API Design Guide](https://github.com/interagent/http-api-design) basierend auf der Heroku Platform
 + [FileBin API](https://wiki.server-speed.net/projects/filebin/api)
++ [Ceph Talk auf der GPN15](https://media.ccc.de/browse/conferences/gpn/gpn15/gpn15-6629-ceph.html#video)

@@ -50,7 +50,7 @@ responseSuccess = {
 
 responseError = {
   "status": "error",
-  "error_id": "program/userable/error/id",
+  "error_id": "program/useable/error/id",
   "message": "A message that can be displayed to the user",
   "data:" object or array, // additional information, only used if mentioned for a specific error
 ```

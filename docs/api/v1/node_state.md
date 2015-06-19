@@ -10,7 +10,7 @@ node_state = {
 | Verb | Notes |
 |------|-------|
 | GET  | Returns a list of `node_state` objects. |
-| POST | Adds a new node state. `node_state.id` is ignored. The name must be unique|
+| POST | Adds a new node state. `node_state.id` is ignored. The `node_state.name` must be unique |
 | DELETE | Removes a node state. Only `node_state.id` has to be set. |
 | UPDATE | Updates a node state. `node_state.id` is required, additional values set will be updated. |
 

@@ -10,7 +10,7 @@ vm_state = {
 | Verb | Notes |
 |------|-------|
 | GET  | Returns a list of `vm_state` objects. |
-| POST | Adds a new node state. `vm_state.id` is ignored. The name must be unique|
+| POST | Adds a new node state. `vm_state.id` is ignored. The `vm_state.name` must be unique |
 | DELETE | Removes a node state. Only `vm_state.id` has to be set. |
 | UPDATE | Updates a node state. `vm_state.id` is required, additional values set will be updated. |
 

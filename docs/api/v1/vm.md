@@ -43,7 +43,7 @@ All verbs except DELETE return the new/current vm object(s), DELETE returns the 
 
 ### Notes
 
-a `POST` call will create a VM and a network interface without a VLAN, but with a free IPv4 and IPv6 address. You might want to create a blockdevice (/storage) and assign it to the new VM.
+a `POST` call will create a VM and a network interface without a VLAN, but with a free IPv4 and IPv6 address. You might want to create a blockdevice (/storage) and assign it to the new VM. The `cputime_limit` refers to the [Qemu driver for cgroups cpu controller](https://libvirt.org/cgroups.html).
 
 ### Version history
 

@@ -13,13 +13,12 @@ vm = {
     name: String,
     description: String,
   },
-  virt_method_id: {
+  node_method: {
     id: int,
-    virt_method_id: {
+    virt_method: {
       id: int,
       name: string,
     },
-    virt_node_id: int,
   },
 }
 ```
@@ -43,7 +42,7 @@ All verbs except DELETE return the new/current vm object(s), DELETE returns the 
 
 ### Notes
 
-a `POST` call will create a VM and a network interface without a VLAN, but with a free IPv4 and IPv6 address. You might want to create a blockdevice (/storage) and assign it to the new VM. The `cputime_limit` refers to the [Qemu driver for cgroups cpu controller](https://libvirt.org/cgroups.html).
+a `POST` call will create a VM and a network interface without a VLAN, but with a free IPv4 and IPv6 address. You might want to create a blockdevice (/storage) and assign it to the new VM. The `cputime_limit` refers to the [Qemu driver for cgroups cpu controller](https://libvirt.org/cgroups.html). You can set `vm.node_method.id` OR `vm.node_method.virt_method.id`. The first one specifies only the needed hypervisor technology (for example KVM) and the API itself will choose a suitable host system. The second attribute specifies the hardware node AND the needed hypervisor technology.
 
 ### Version history
 

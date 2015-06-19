@@ -42,7 +42,7 @@ All verbs except DELETE return the new/current vm object(s), DELETE returns the 
 
 There is also a dedicated endpoint to modify the vm states ([/vm_state](vm_state.md)).
 
-A `POST` call will create a VM and a network interface without a VLAN, but with a free IPv4 and IPv6 address. You might want to create a blockdevice [(/storage](storage.md)) and assign it to the new VM. The `cputime_limit` refers to the [Qemu driver for cgroups cpu controller](https://libvirt.org/cgroups.html). You can set `vm.node_method.id` OR `vm.node_method.virt_method.id`. The first one specifies the hardware node AND the needed hypervisor technology, the second one specifies only the needed hypervisor technology (for example KVM) and the API itself will choose a suitable host system.
+A `POST` call will create a VM and a network interface without a VLAN, but with a free IPv4 and IPv6 address. You might want to create a blockdevice [(/storage](storage.md)) and assign it to the new VM. The `cputime_limit` refers to the [period setting](https://libvirt.org/formatdomain.html#elementsCPUTuning) in the [Qemu driver for cgroups cpu controller](https://libvirt.org/cgroups.html), . You can set `vm.node_method.id` OR `vm.node_method.virt_method.id`. The first one specifies the hardware node AND the needed hypervisor technology, the second one specifies only the needed hypervisor technology (for example KVM) and the API itself will choose a suitable host system.
 
 ### Version history
 

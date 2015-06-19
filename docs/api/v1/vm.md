@@ -39,7 +39,7 @@ All verbs except DELETE return the new/current vm object(s), DELETE returns the 
 
 | Error ID | Message | Notes |
 |----------|---------|-------|
-| vms/invalid/email | The email address is invalid | |
+| example id | message  | notes |
 
 ### Notes
 

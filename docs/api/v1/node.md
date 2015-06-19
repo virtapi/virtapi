@@ -33,7 +33,7 @@ All verbs except DELETE return the new/current node object(s), DELETE returns th
 
 | Error ID | Message | Notes |
 |----------|---------|-------|
-| nodes/invalid/email | The email address is invalid | |
+| example id | message  | notes |
 
 ### Version history
 

@@ -27,7 +27,7 @@ vm = {
 | Verb | Notes |
 |------|-------|
 | GET  | Returns a list of `vm` objects. |
-| POST | Adds a new vm. `vm.id` is ignored. |
+| POST | Adds a new vm. `vm.id` is ignored. The UUID will be auto generated if you don't provide it |
 | DELETE | Removes a vm. Only `vm.id` has to be set. |
 | UPDATE | Updates a vm. `vm.id` is required, additional values set will be updated. |
 

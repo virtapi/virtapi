@@ -9,10 +9,8 @@ node = {
   ipv6_gw_ext: IPAddress6 (String),
   fqdn: String,
   location: String,
-  state: {
-    id: StateID (int),
-    name: String,
-    description: String,
+  node_state: {
+    id: int,
   },
   bond_interfaces: nullable String,
 }
@@ -34,6 +32,10 @@ All verbs except DELETE return the new/current node object(s), DELETE returns th
 | Error ID | Message | Notes |
 |----------|---------|-------|
 | example id | message  | notes |
+
+### Notes
+
+There is also a dedicated endpoint to modify the node states ([/node_state](node_state.md)).
 
 ### Version history
 

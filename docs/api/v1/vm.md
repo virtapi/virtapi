@@ -43,7 +43,7 @@ All verbs except DELETE return the new/current vm object(s), DELETE returns the 
 
 ### Notes
 
-a `POST` call will create a VM and one network interface without a VLAN, but with a free IPv4 and IPv6 address. You may want to create a blockdevice (/storage) and assign it to the new VM.
+a `POST` call will create a VM and a network interface without a VLAN, but with a free IPv4 and IPv6 address. You might want to create a blockdevice (/storage) and assign it to the new VM.
 
 ### Version history
 

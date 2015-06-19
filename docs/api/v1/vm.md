@@ -4,7 +4,7 @@
 vm = {
   id: int,
   cores: int,
-  ram: Megabytes (int),
+  ram: Bytes (int),
   customer_id: int,
   cputime_limit: int,
   uuid: UUID (String),

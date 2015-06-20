@@ -33,7 +33,7 @@ TODO
 
 ### Response structure
 
-Responses will always be in the form described as the value of the response variable below. Any reply not conforming to this format can be considered as an error.
+Responses will always be in the form described as the value of the response variable below. Any reply not conforming to this format can be considered as an error. It is possible that an Object doesn't have all attributes that are defined in the modell. These attributes will be null.
 
 ```javascript
 // Type definitions
@@ -70,7 +70,7 @@ You can convert errors to exceptions in your client and use `error_id` to select
 
 ### Request structure
 
-Endpoints generally accept multiple values to be sent in a serialized fashion (JSON) in the request body when called via POST or UPDATE.
+Endpoints generally accept multiple values to be sent in a serialized fashion (JSON) in the request body when called via POST or UPDATE. Values that aren't necessary are repesented with `nullable` in the endpoint documentation.
 
 ### Filtering
 

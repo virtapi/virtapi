@@ -1,6 +1,6 @@
 ## /cache_option
 
-```
+```javascript
 cache_option = {
   id: int,
   name: string,
@@ -11,7 +11,7 @@ cache_option = {
 | Verb | Notes |
 |------|-------|
 | GET  | Returns a list of `cache_option` objects. |
-| POST | Adds a new cache option for persistent storage devices ([/storage](storage.md)). `cache_option.id` is ignored. The `cache_option.name` and `cache_option.description` attributes must be unique |
+| POST | Adds a new cache option for persistent storage devices ([/storage](storage.md)). `cache_option.id` is ignored. The `cache_option.name` and `cache_option.description` attributes must be unique. |
 | DELETE | Removes a node state. Only `cache_option.id` has to be set. |
 | UPDATE | Updates a node state. `cache_option.id` is required, additional values set will be updated. |
 

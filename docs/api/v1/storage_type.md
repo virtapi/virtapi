@@ -1,6 +1,6 @@
 ## /storage_type
 
-```
+```javascript
 storage_type = {
   id: int,
   name: string,
@@ -11,7 +11,7 @@ storage_type = {
 | Verb | Notes |
 |------|-------|
 | GET  | Returns a list of `storage_type` objects. |
-| POST | Adds a new storage type for persistent storage devices ([/storage](storage.md)). `storage_type.id` is ignored. The `storage_type.name` and `storage_type.description` must be unique |
+| POST | Adds a new storage type for persistent storage devices ([/storage](storage.md)). `storage_type.id` is ignored. The `storage_type.name` and `storage_type.description` attributes must be unique. |
 | DELETE | Removes a storage type. Only `storage_type.id` has to be set. |
 | UPDATE | Updates a storage type. `storage_type.id` is required, additional values set will be updated. |
 

@@ -1,13 +1,13 @@
 ## /storage
 
-```
+```javascript
 storage = {
   id: int,
   size: Bytes (int),
   write_iops_limit: int,
   read_iops_limit: int,
-  write_mbps_limit: Megabyte/s (int),
-  read_mbps_limit: Megabyte/s (int),
+  write_bps_limit: nullable int, // bytes per second
+  read_bps_limit: nullable int, // bytes per second
   vm: {
     id: int,
   }
@@ -39,7 +39,7 @@ All verbs except DELETE return the new/current block storage object(s), DELETE r
 
 ### Notes
 
-There is also a dedicated endpoint to modify the cache options ([/cache_options](cache_options.md)) and the different storage types ([/storage_type](storage_type.md)).
+There is also a dedicated endpoint to modify the cache options ([/cache_options](cache_options.md)) and the different storage types ([/storage_type](storage_type.md)). Virtual machines are managed via the [/vm](vm.md) endpoint.
 
 ### Version history
 

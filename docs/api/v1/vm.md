@@ -1,13 +1,13 @@
 ## /vm
 
-```
+```javascript
 vm = {
   id: int,
   cores: int,
   ram: Bytes (int),
   customer_id: int,
   cputime_limit: int,
-  uuid: UUID (String),
+  uuid: nullable UUID (String),
   vm_state: {
     id: int,
   },
@@ -24,7 +24,7 @@ vm = {
 | Verb | Notes |
 |------|-------|
 | GET  | Returns a list of `vm` objects. |
-| POST | Adds a new vm. `vm.id` is ignored. The UUID will be auto generated if you don't provide it |
+| POST | Adds a new vm. `vm.id` is ignored. The UUID will be auto generated if you don't provide it. |
 | DELETE | Removes a vm. Only `vm.id` has to be set. |
 | UPDATE | Updates a vm. `vm.id` is required, additional values set will be updated. |
 
@@ -41,6 +41,8 @@ All verbs except DELETE return the new/current vm object(s), DELETE returns the 
 ### Notes
 
 There is also a dedicated endpoint to modify the vm states ([/vm_state](vm_state.md)).
+
+Broken Parallels software uses UUIDs to identify their containers and virtual machines, but it is possible that multiple containers have the same UUID, so this isn't a unique value and also not our primary key. 
 
 A `POST` call will create a VM and a network interface without a VLAN, but with a free IPv4 and IPv6 address. You might want to create a blockdevice [(/storage](storage.md)) and assign it to the new VM. The `cputime_limit` refers to the [period setting](https://libvirt.org/formatdomain.html#elementsCPUTuning) in the [Qemu driver for cgroups cpu controller](https://libvirt.org/cgroups.html), . You can set `vm.node_method.id` OR `vm.node_method.virt_method.id`. The first one specifies the hardware node AND the needed hypervisor technology, the second one specifies only the needed hypervisor technology (for example KVM) and the API itself will choose a suitable host system.
 

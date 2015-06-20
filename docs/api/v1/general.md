@@ -70,7 +70,7 @@ You can convert errors to exceptions in your client and use `error_id` to select
 
 ### Request structure
 
-Endpoints generally accept multiple values to be sent in a serialized fashion (JSON) in the request body when called via POST or UPDATE. Values that aren't necessary are repesented with `nullable` in the endpoint documentation.
+Endpoints generally accept multiple values to be sent in a serialized fashion (JSON) in the request body when called via POST or UPDATE. Values that aren't necessary are repesented with `nullable` in the endpoint documentation. In a request, you can send the value `NULL` or ignore the attribute and don't send it.
 
 ### Filtering
 

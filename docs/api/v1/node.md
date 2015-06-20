@@ -1,6 +1,6 @@
 ## /node
 
-```json
+```javascript
 node = {
   id: int,
   ipv4_addr_ext: IPAddress4 (String),

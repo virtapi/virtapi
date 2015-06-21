@@ -5,8 +5,8 @@ vm = {
   id: int,
   cores: int,
   ram: Bytes (int),
-  customer_id: int,
-  cputime_limit: int,
+  customer_id: nullable int,
+  cputime_limit: nullable int,
   uuid: nullable UUID (String),
   node: nullable {
     id: int,
@@ -50,6 +50,30 @@ A `POST` call will create a VM and a network interface without a VLAN, but with 
 
 ### Example
 
+Call to creata a new virtual machine
 ```
-Some example calls/returns here.
+$curl -H "Content-Type: application/json" -X POST -d $data $base/vm
 ```
+
+$data is:
+```javascript
+{
+  cores:2,
+  ram:1073741824,
+  virt_method: {
+    id: 1
+  },
+}'
+```
+
+response:
+```javascript
+responseSuccess: {
+  status: "success",
+  data: {
+    id: 5,
+  },
+}
+```
+
+this creates a new virtual machine with 2 CPU cores and 1GB of ram without a block device and with the hypervisor with id 1. The response contains the status and the id of the new VM.

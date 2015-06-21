@@ -8,7 +8,7 @@ node = {
   ipv4_gw_ext: IPAddress4 (String),
   ipv6_gw_ext: IPAddress6 (String),
   fqdn: String,
-  location: String,
+  location: nullable String,
   node_state: {
     id: int,
   },
@@ -45,6 +45,38 @@ There is also a dedicated endpoint to modify the node states ([/node_state](node
 
 ### Example
 
+Call to creata a new node:
 ```
-Some example calls/returns here.
+$ curl -H "Content-Type: application/json" -X POST -d $data $base/node
 ```
+$data is:
+```javascript
+{
+  ipv4_addr_ext: "192.168.1.10/24",
+  ipv6_addr_ext: "2a01:4f8:11a:b2a::1/64",
+  ipv4_gw_ext: "192.168.1.1",
+  ipv6_gw_ext: "2a01:4f8:11a:b00::1",
+  fqdn: "cloudnode1.local",
+  node_state: {
+    id: 5,
+  }
+}
+```
+
+response:
+```javascript
+responseSuccess: {
+  status: "success",
+  data: {
+    id: 1337,
+  }
+}
+```
+this will create a new node with the given specs, in this example, there is an existing node_state with id 5. The response contains the status and the id of the new node.
+
+
+
+
+
+
+

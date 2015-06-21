@@ -8,15 +8,11 @@ vm = {
   customer_id: int,
   cputime_limit: int,
   uuid: nullable UUID (String),
-  vm_state: {
+  node: nullable {
     id: int,
   },
-  node_method: {
-    id: int,
-    virt_method: {
+  virt_method: {
       id: int,
-      name: string,
-    },
   },
 }
 ```
@@ -40,11 +36,11 @@ All verbs except DELETE return the new/current vm object(s), DELETE returns the 
 
 ### Notes
 
-There is also a dedicated endpoint to modify the vm states ([/vm_state](vm_state.md)).
+There is also a dedicated endpoint to modify the vm states ([/vm_state](vm_state.md)), the virtualization technologies ([/virt_method](virt_method.md)) and the node ([/node](node.md)).
 
 Broken Parallels software uses UUIDs to identify their containers and virtual machines, but it is possible that multiple containers have the same UUID, so this isn't a unique value and also not our primary key. 
 
-A `POST` call will create a VM and a network interface without a VLAN, but with a free IPv4 and IPv6 address. You might want to create a blockdevice [(/storage](storage.md)) and assign it to the new VM. The `cputime_limit` refers to the [period setting](https://libvirt.org/formatdomain.html#elementsCPUTuning) in the [Qemu driver for cgroups cpu controller](https://libvirt.org/cgroups.html), . You can set `vm.node_method.id` OR `vm.node_method.virt_method.id`. The first one specifies the hardware node AND the needed hypervisor technology, the second one specifies only the needed hypervisor technology (for example KVM) and the API itself will choose a suitable host system.
+A `POST` call will create a VM and a network interface without a VLAN, but with a free IPv4 and IPv6 address. You might want to create a blockdevice [(/storage](storage.md)) and assign it to the new VM. The `cputime_limit` refers to the [period setting](https://libvirt.org/formatdomain.html#elementsCPUTuning) in the [Qemu driver for cgroups cpu controller](https://libvirt.org/cgroups.html) documentation. You need to set `vm.virt_method.id` which specifies only the needed hypervisor technology (for example KVM) and the API itself will choose a suitable host system.It is also possible to provide `vm.node.id`, this will assign the new VM to an existing node. Your call will fail if the provided Node doesn't exists. 
 
 ### Version history
 

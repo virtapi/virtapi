@@ -27,20 +27,13 @@ Contributors:
   - [OpenNebula](#opennebula)
   - [Archipel](#archipel)
 + [Entity Relationship Modell](#entity-relationship-modell)
-+ [Use Cases](#use-cases)
-  - [Definieren von Virtualisierungstechniken](#definieren-von-virtualisierungstechniken)
-  - [Hinzufügen von Nodes](#hinzuf%C3%BCgen-von-nodes)
-  - [Hinzufügen eines IPv4 Netzes](#hinzuf%C3%BCgen-eines-ipv4-netzes)
-  - [Eintragen einer virtuellen Maschine](#eintragen-einer-virtuellen-maschine)
-  - [Übersicht aller Hypervisor und deren unterstützten Techniken](#Übersicht-aller-hypervisor-und-deren-unterstützten-techniken)
-  - [Installation einer VM](#installation-einer-vm)
 + [Kontakt](#kontakt)
 + [Links und quellen](#links-und-quellen)
 
 ---
 
 ## Projektbeschreibung
-Mithilfe von Open-Source-Software soll eine API erstellt werden, die eine automatisierte Orchestrierung einer dynamischen Cloud Infrastruktur ermöglicht. Lizensiert sie die API unter der [GNU Affero General Public License](LICENSE).Verwaltet werden sollen zum einen die verschiedenen Hypervisor, die eigentlichen Cloud Instanzen und das Netzwerk. Um einen sicheren Betrieb der API zu gewährleisten, wird diese redundant und skalierbar gebaut. Außerdem wird stark auf die IT-Sicherheit geachtet, da die API nicht nur intern zur Administration genutzt wird, sondern auch Kunden darüber autark Änderungen ihrer Instanzen vornehmen können. Eine Beschreibung der Infrastruktur (auf Englisch) gibt es [hier](cloud_infrastructure.md).
+Mithilfe von Open-Source-Software soll eine API erstellt werden, die eine automatisierte Orchestrierung einer dynamischen Cloud Infrastruktur ermöglicht. Lizensiert ist die API unter der [GNU Affero General Public License](LICENSE). Verwaltet werden sollen zum einen die verschiedenen Hypervisor, die eigentlichen Cloud Instanzen und das Netzwerk. Um einen sicheren Betrieb der API zu gewährleisten, wird diese redundant und skalierbar gebaut. Außerdem wird stark auf die IT-Sicherheit geachtet, da die API nicht nur intern zur Administration genutzt wird, sondern auch Kunden darüber autark Änderungen ihrer Instanzen vornehmen können. Eine Beschreibung der Infrastruktur (auf Englisch) gibt es [hier](cloud_infrastructure.md).
 
 ### Node
 Ein Node (Tabelle node) bezeichnet immer einen physischen Server. Dieser besitzt verschiedene wichtige Attribute (diverse IP-Adressen, fqdn...). Jeder Node kann mehrere unterschiedliche Rollen implementieren,  aber jede Rolle jeweils nur einmal. Um eine gute Erreichbarkeit zu gewährleisten, hat jeder Node je eine IPv4 und eine IPv6-Adresse.
@@ -117,46 +110,6 @@ In der [Projektbeschreibung](#Projektbeschreibung) und in den [Anforderungen](#A
 
 ## Entity Relationship Modell
 ![virtapi ERD](database/images/virtapi.svg)
-
----
-
-## Use Cases
-
-### Definieren von Virtualisierungstechniken
-
-### Hinzufügen von Nodes
-
-### Hinzufügen eines IPv4 Netzes
-
-### Eintragen einer virtuellen Maschine
-
-### Übersicht aller Hypervisor und deren unterstützten Techniken
-Dies ist notwendig, um einen schnellen Überblick über seine Hypervisor sowie deren unterstützte Techniken zu bekommen.
-```sql
-SELECT
-  `node`.`FQDN`, `virt_method`.`name` -- specify the tables and attributes you want to have 
-FROM
-  `node` -- specify the tables again
-INNER JOIN
-  `virt_node` -- where do we want to join
-ON
-  `node`.`id` = `virt_node`.`node_id` -- which attributes should be the same
-INNER JOIN -- first join for N:M, check PK of first table with N:M table
-  `node_method`
-ON
-  `virt_node`.`id` = `node_method`.`virt_node_id`
-INNER JOIN -- second join for N:M, check N:M table with PK of second table
-  `virt_method`
-ON
-  `node_method`.`virt_method_id` = `virt_method`.`id`;
-```
-
-### Installation einer VM
-Dies wird via [installimage](http://wiki.hetzner.de/index.php/Installimage) implementiert:
-+ PXE Eintrag setzen
-+ VM rebooten
-+ VM bootet Live Linux
-+ via Kernel-Parameter wird ein Autostart-Script angegeben (das *installimage*) + config (welches OS,...)
 
 ---
 

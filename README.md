@@ -28,13 +28,6 @@ Contributors:
   - [OpenNebula](#opennebula)
   - [Archipel](#archipel)
 + [Entity Relationship Model](#entity-relationship-model)
-+ [Use Cases](#use-cases)
-  - [Add new virtualization technologies](#add-new-virtualization-technologies)
-  - [Add new roles and corresponding nodes](#add-new-roles-and-correspondig-nodes)
-  - [Add a whole IPv4 subnet](#add-a-whole-ipv4-subnet)
-  - [Add a virtual machine](#add-a-virtual-machine)
-  - [Install an operating system in a virtual machine](#install-an-operating-system-in-a-virtual-machine)
-  - [List all nodes with the role hypervisor and their virtualization technologies](#list-all-nodes-with-the-role-hypervisor-and-their-virtualization-technologies)
 + [Contact](#contact)
 + [Links and Sources](#links-and-sources)
 
@@ -114,50 +107,10 @@ You can find the latest ERD from the current branch [here](database/images/virta
 
 ---
 
-## Use Cases
-
-
-### Add new virtualization technologies
-
-
-### Add new roles and corresponding nodes
-
-
-### Add a whole IPv4 subnet
-
-
-### Add a virtual machine
-
-
-### Install an operating system in a virtual machine
-This is implemented via the [installimage](http://wiki.hetzner.de/index.php/Installimage) script:
-+ Activate PXE for one VM
-+ Reboot VM
-+ VM boots live Linux via PXE with nfs-on-root and tmpfs overlay
-+ A Kernel cmdline option tells the operating system to trigger the installimage with a custom config
-
-### List all nodes with the role hypervisor and their virtualization technologies
-```sql
-SELECT
-  `node`.`FQDN`, `virt_method`.`name` -- specify the tables and attributes you want to have 
-FROM
-  `node` -- specify the tables again
-INNER JOIN
-  `virt_node` -- where do we want to join
-ON
-  `node`.`id` = `virt_node`.`node_id` -- which attributes should be the same
-INNER JOIN -- first join for N:M, check PK of first table with N:M table
-  `node_method`
-ON
-  `virt_node`.`id` = `node_method`.`virt_node_id`
-INNER JOIN -- second join for N:M, check N:M table with PK of second table
-  `virt_method`
-ON
-  `node_method`.`virt_method_id` = `virt_method`.`id`;
-```
-
 ## Contact
 You can meet us in #virtapi at freenode.
+
+---
 
 ## Links and Sources
 + [API Design Guide](https://github.com/interagent/http-api-design)

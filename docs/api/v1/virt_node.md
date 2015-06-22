@@ -34,7 +34,7 @@ All verbs except DELETE return the new/current virtualization role object(s), DE
 
 ### Notes
 
-every node with this role will be able to host virtual machines (openstack slang: it's a compute node). One role is assigned to one node ([/node](node.md)). During a POST call, you can mention the id of an already existing node OR provide all needed attributes/values that are needed for a node and create a new one. Every node with a virt_node role can support multiple virtualization technologies ([/virt_method](virt_method.md)). Each supported technology is provided via the `virt_node.virt_method` attribute. You can create the method if sou provide the needed attributes. It is possible to add the `virt_node.virt_method` several times to assign several methods to one role.
+every node with this role will be able to host virtual machines (openstack slang: it's a compute node). One role is assigned to one node ([/node](node.md)). During a POST call, you can mention the id of an already existing node OR provide all needed attributes/values that are needed for a node and create a new one. Every node with a virt_node role can support multiple virtualization technologies ([/virt_method](virt_method.md)). Each supported technology is provided via the `virt_node.virt_method` attribute. You can create the method if you provide the needed attributes. It is possible to add the `virt_node.virt_method` several times to assign several methods to one role.
 
 ### Version history
 
@@ -44,6 +44,33 @@ every node with this role will be able to host virtual machines (openstack slang
 
 ### Example
 
+Call to create a new virtualization role instance (with a local LVM2 VG for VMs):
 ```
-Some example calls/returns here.
+$ curl -H "Content-Type: application/json" -X POST -d $data $base/virt_node
 ```
+
+$data is:
+```javascript
+{
+  local_storage_gb: 2500,
+  vg_name: "vg0",
+  node: {
+    id: 5,
+  }
+  virt_method: {
+    name: "Qemu",
+  }
+}
+```
+
+response:
+```javascript
+responseSuccess: {
+  status: "success",
+  data: {
+    id: 815,
+  },
+}
+```
+
+This will assign the `virt_node` role to the existing node with id 5. It will also create a new virtualization technology, named "Qemu", which the node will support. The response contains the status and the id of the new role.

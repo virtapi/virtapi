@@ -76,4 +76,4 @@ responseSuccess: {
 }
 ```
 
-this creates a new virtual machine with 2 CPU cores and 1GB of ram without a block device and with the hypervisor with id 1. The response contains the status and the id of the new VM.
+This creates a new virtual machine with 2 CPU cores and 1GB of ram without a block device and with the hypervisor with id 1. The response contains the status and the id of the new VM.

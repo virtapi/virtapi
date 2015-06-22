@@ -72,7 +72,8 @@ responseSuccess: {
   }
 }
 ```
-this will create a new node with the given specs, in this example, there is an existing node_state with id 5. The response contains the status and the id of the new node.
+
+This will create a new node with the given specs, in this example, there is an existing node_state with id 5. The response contains the status and the id of the new node.
 
 
 

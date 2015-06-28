@@ -50,8 +50,8 @@ There is also a dedicated endpoint to modify the cache options ([/cache_options]
 ### Example
 
 Call to create a new virtual machine:
-```javascript
-$ curl -H "Content-Type: application/json" -X POST -d $data $base/storage
+```bash
+curl -H "Content-Type: application/json" -X POST -d $data $base/storage
 ```
 
 $data is:

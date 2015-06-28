@@ -27,26 +27,20 @@ Contributors:
   - [OpenNebula](#opennebula)
   - [Archipel](#archipel)
 + [Entity Relationship Modell](#entity-relationship-modell)
-+ [Use Cases](#use-cases)
-  - [Definieren von Virtualisierungstechniken](#definieren-von-virtualisierungstechniken)
-  - [Hinzufügen von Nodes](#hinzuf%C3%BCgen-von-nodes)
-  - [Hinzufügen eines IPv4 Netzes](#hinzuf%C3%BCgen-eines-ipv4-netzes)
-  - [Eintragen einer virtuellen Maschine](#eintragen-einer-virtuellen-maschine)
-  - [Übersicht aller Hypervisor und deren unterstützten Techniken](#Übersicht-aller-hypervisor-und-deren-unterstützten-techniken)
-  - [Installation einer VM](#installation-einer-vm)
 + [Kontakt](#kontakt)
 + [Links und quellen](#links-und-quellen)
 
 ---
 
 ## Projektbeschreibung
-Mithilfe von Open-Source-Software soll eine API erstellt werden, die eine automatisierte Orchestrierung einer dynamischen Cloud Infrastruktur ermöglicht. Lizensiert sie die API unter der [GNU Affero General Public License](LICENSE).Verwaltet werden sollen zum einen die verschiedenen Hypervisor, die eigentlichen Cloud Instanzen und das Netzwerk. Um einen sicheren Betrieb der API zu gewährleisten, wird diese redundant und skalierbar gebaut. Außerdem wird stark auf die IT-Sicherheit geachtet, da die API nicht nur intern zur Administration genutzt wird, sondern auch Kunden darüber autark Änderungen ihrer Instanzen vornehmen können. Eine Beschreibung der Infrastruktur (auf Englisch) gibt es [hier](cloud_infrastructure.md).
+Mithilfe von Open-Source-Software soll eine API erstellt werden, die eine automatisierte Orchestrierung einer dynamischen Cloud Infrastruktur ermöglicht. Lizensiert ist die API unter der [GNU Affero General Public License](LICENSE). Verwaltet werden sollen zum einen die verschiedenen Hypervisor, die eigentlichen Cloud Instanzen und das Netzwerk. Um einen sicheren Betrieb der API zu gewährleisten, wird diese redundant und skalierbar gebaut. Außerdem wird stark auf die IT-Sicherheit geachtet, da die API nicht nur intern zur Administration genutzt wird, sondern auch Kunden darüber autark Änderungen ihrer Instanzen vornehmen können. Eine Beschreibung der Infrastruktur (auf Englisch) gibt es [hier](cloud_infrastructure.md).
 
 ### Node
 Ein Node (Tabelle node) bezeichnet immer einen physischen Server. Dieser besitzt verschiedene wichtige Attribute (diverse IP-Adressen, fqdn...). Jeder Node kann mehrere unterschiedliche Rollen implementieren,  aber jede Rolle jeweils nur einmal. Um eine gute Erreichbarkeit zu gewährleisten, hat jeder Node je eine IPv4 und eine IPv6-Adresse.
 
 ### Rollen
-Jede sperfische Rolle hat einen Node. In einer Tabelle wird die ID des Nodes gespeichert.
+Jede spezifische Rolle hat einen Node. In einer Tabelle wird die ID des Nodes gespeichert.
+
 #### Hypervisor
 Wenn von einem Hypervisor (Tabelle **virt_node**) gesprochen wird, bezieht man sich meist auf das physische Hostsystem für eine beliebige Anzahl von Cloud-Instanzen (Nova Node im Openstack Jargon). Jeder Hypervisor kann verschiedene Virtualisierungstechniken nutzen (Tabelle **virt_method**, Zuordnung in  der Tabelle **node_method**). Lokaler Storage für virtuelle Maschinen kann über *thin provisioned LVM* oder als *raw/QCOW2 Image* (Attribut **local_storage_path**) bereitgestellt werden (Attribut **vg_name**). In beiden Fällen wird der lokal belegbare Speicher definiert (Attribut **local_storage_gb**). Der verteilte Storage (Tabelle **storage** und **storage_ceph**) steht in keiner Relation zum Hypervisor. Jeder Hypervisor muss sich in einem definierten Zustand befinden (Attribut **state_id**, Tabelle **node_state**). Beispiele dafür sind *Running*, *Offline*, *Repair* und *Maintenance*.
 
@@ -119,46 +113,6 @@ In der [Projektbeschreibung](#Projektbeschreibung) und in den [Anforderungen](#A
 
 ---
 
-## Use Cases
-
-### Definieren von Virtualisierungstechniken
-
-### Hinzufügen von Nodes
-
-### Hinzufügen eines IPv4 Netzes
-
-### Eintragen einer virtuellen Maschine
-
-### Übersicht aller Hypervisor und deren unterstützten Techniken
-Dies ist notwendig, um einen schnellen Überblick über seine Hypervisor sowie deren unterstützte Techniken zu bekommen.
-```sql
-SELECT
-  `node`.`FQDN`, `virt_method`.`name` -- specify the tables and attributes you want to have 
-FROM
-  `node` -- specify the tables again
-INNER JOIN
-  `virt_node` -- where do we want to join
-ON
-  `node`.`id` = `virt_node`.`node_id` -- which attributes should be the same
-INNER JOIN -- first join for N:M, check PK of first table with N:M table
-  `node_method`
-ON
-  `virt_node`.`id` = `node_method`.`virt_node_id`
-INNER JOIN -- second join for N:M, check N:M table with PK of second table
-  `virt_method`
-ON
-  `node_method`.`virt_method_id` = `virt_method`.`id`;
-```
-
-### Installation einer VM
-Dies wird via [installimage](http://wiki.hetzner.de/index.php/Installimage) implementiert:
-+ PXE Eintrag setzen
-+ VM rebooten
-+ VM bootet Live Linux
-+ via Kernel-Parameter wird ein Autostart-Script angegeben (das *installimage*) + config (welches OS,...)
-
----
-
 ## Kontakt
 Auf freenode gibt es den IRC Channel #virtapi, hier findet man immer einen der Entwickler und kann Bugs/Features diskutieren.
 
@@ -167,3 +121,4 @@ Auf freenode gibt es den IRC Channel #virtapi, hier findet man immer einen der E
 ## Links und Quellen
 + [API Design Guide](https://github.com/interagent/http-api-design) basierend auf der Heroku Platform
 + [FileBin API](https://wiki.server-speed.net/projects/filebin/api)
++ [Ceph Talk auf der GPN15](https://media.ccc.de/browse/conferences/gpn/gpn15/gpn15-6629-ceph.html#video)

@@ -13,9 +13,10 @@ Contributors:
 ## Contents
 + [Project description](#project-description)
   - [Node](#node)
-  - [Role hypervisor](#role-hypervisor)
-  - [Role Ceph OSD node](#role-ceph-osd-node)
-  - [Role Ceph Mon Node](#role-ceph-mon-node)
+  - [Roles](#roles)
+    - [Role hypervisor](#hypervisor)
+    - [Role Ceph OSD node](#ceph-osd-node)
+    - [Role Ceph Mon Node](#ceph-mon-node)
   - [Cloud instances](#cloud-instances)
   - [Network interfaces](#network-interfaces)
   - [Storage](#storage)
@@ -26,21 +27,14 @@ Contributors:
   - [OpenStack](#openstack)
   - [OpenNebula](#opennebula)
   - [Archipel](#archipel)
-+ [Entity Relationship Modell](#entity-relationship-modell)
-+ [Use Cases](#use-cases)
-  - [Add new virtualization technologies](#add-new-virtualization-technologies)
-  - [Add new roles and corresponding nodes](#add-new-roles-and-correspondig-nodes)
-  - [Add a whole IPv4 subnet](#add-a-whole-ipv4-subnet)
-  - [Add a virtual machine](#add-a-virtual-machine)
-  - [Install an operating system in a virtual machine](#install-an-operating-system-in-a-virtual-machine)
-  - [List all nodes with the role hypervisor and their virtualization technologies](#list-all-nodes-with-the-role-hypervisor-and-their-virtualization-technologies)
++ [Entity Relationship Model](#entity-relationship-model)
 + [Contact](#contact)
 + [Links and Sources](#links-and-sources)
 
 ---
 
 ## Project description
-This project aims to provide an open-source API to orchastrate a dynamic cloud infrastructure. The API is licensed under the [GNU Affero General Public License](LICENSE).The goal is to not only manage the host systems, but also the virtual machines itself and storage nodes (ceph) to provide an all-in-one solution that is flexible enough to handle several thousand machines and multiple different virtualization technologies. The API has a focus on secure development to provide an interface for direct customer contact. A description of one possible infrastructure design is available [here](cloud_infrastructure.md). Here is a detailed description for all resources (visualised at [Entity Relationship Modell](#entity-relationship-modell)):
+This project aims to provide an open-source API to orchastrate a dynamic cloud infrastructure. The API is licensed under the [GNU Affero General Public License](LICENSE).The goal is to not only manage the host systems, but also the virtual machines itself and storage nodes (ceph) to provide an all-in-one solution that is flexible enough to handle several thousand machines and multiple different virtualization technologies. The API has a focus on secure development to provide an interface for direct customer contact. A description of one possible infrastructure design is available [here](cloud_infrastructure.md). Here is a detailed description for all resources (visualised at [Entity Relationship Model](#entity-relationship-model)):
 
 ### Node
 Every physical server is described as a resource from the type node (table **node**). Each node has several attributes (multiple IP-Addresses, FQDN...). The IP attributes are mandatory. A node also needs a defined state (attribute **state_id**, table **node_state**), examples are "running", "in maintenance".
@@ -108,56 +102,17 @@ All requirements should be listed in the paragraphs [Project description](#proje
 
 ---
 
-## Entity Relationshop Modell
+## Entity Relationship Model
 You can find the latest ERD from the current branch [here](database/images/virtapi.svg).
 
 ---
 
-## Use Cases
-
-
-### Add new virtualization technologies
-
-
-### Add new roles and corresponding nodes
-
-
-### Add a whole IPv4 subnet
-
-
-### Add a virtual machine
-
-
-### Install an operating system in a virtual machine
-This is implemented via the [installimage](http://wiki.hetzner.de/index.php/Installimage) script:
-+ Activate PXE for one VM
-+ Reboot VM
-+ VM boots live Linux via PXE with nfs-on-root and tmpfs overlay
-+ A Kernel cmdline option tells the operating system to trigger the installimage with a custom config
-
-### List all nodes with the role hypervisor and their virtualization technologies
-```sql
-SELECT
-  `node`.`FQDN`, `virt_method`.`name` -- specify the tables and attributes you want to have 
-FROM
-  `node` -- specify the tables again
-INNER JOIN
-  `virt_node` -- where do we want to join
-ON
-  `node`.`id` = `virt_node`.`node_id` -- which attributes should be the same
-INNER JOIN -- first join for N:M, check PK of first table with N:M table
-  `node_method`
-ON
-  `virt_node`.`id` = `node_method`.`virt_node_id`
-INNER JOIN -- second join for N:M, check N:M table with PK of second table
-  `virt_method`
-ON
-  `node_method`.`virt_method_id` = `virt_method`.`id`;
-```
-
 ## Contact
 You can meet us in #virtapi at freenode.
+
+---
 
 ## Links and Sources
 + [API Design Guide](https://github.com/interagent/http-api-design)
 + [FileBin API](https://wiki.server-speed.net/projects/filebin/api)
++ [Ceph Talk at GPN15](https://media.ccc.de/browse/conferences/gpn/gpn15/gpn15-6629-ceph.html#video)

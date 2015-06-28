@@ -45,8 +45,8 @@ every node with this role will be able to host virtual machines (openstack slang
 ### Example
 
 Call to create a new virtualization role instance (with a local LVM2 VG for VMs):
-```
-$ curl -H "Content-Type: application/json" -X POST -d $data $base/virt_node
+```bash
+curl -H "Content-Type: application/json" -X POST -d $data $base/virt_node
 ```
 
 $data is:

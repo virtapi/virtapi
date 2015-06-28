@@ -46,9 +46,10 @@ There is also a dedicated endpoint to modify the node states ([/node_state](node
 ### Example
 
 Call to creata a new node:
+```bash
+curl -H "Content-Type: application/json" -X POST -d $data $base/node
 ```
-$ curl -H "Content-Type: application/json" -X POST -d $data $base/node
-```
+
 $data is:
 ```javascript
 {

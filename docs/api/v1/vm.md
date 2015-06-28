@@ -51,8 +51,8 @@ A `POST` call will create a VM and a network interface without a VLAN, but with 
 ### Example
 
 Call to creata a new virtual machine
-```
-$ curl -H "Content-Type: application/json" -X POST -d $data $base/vm
+```bash
+curl -H "Content-Type: application/json" -X POST -d $data $base/vm
 ```
 
 $data is:

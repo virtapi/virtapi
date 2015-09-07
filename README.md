@@ -113,8 +113,10 @@ You can meet us in #virtapi at freenode.
 
 ---
 
-##contribution
+## contribution
 We've defined our contribution rules in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+---
 
 ## Links and Sources
 + [API Design Guide](https://github.com/interagent/http-api-design)

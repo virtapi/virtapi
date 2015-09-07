@@ -29,6 +29,7 @@ Contributors:
   - [Archipel](#archipel)
 + [Entity Relationship Model](#entity-relationship-model)
 + [Contact](#contact)
++ [Contribution](#contribution)
 + [Links and Sources](#links-and-sources)
 
 ---
@@ -111,6 +112,9 @@ You can find the latest ERD from the current branch [here](database/images/virta
 You can meet us in #virtapi at freenode.
 
 ---
+
+##contribution
+We've defined our contribution rules in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Links and Sources
 + [API Design Guide](https://github.com/interagent/http-api-design)

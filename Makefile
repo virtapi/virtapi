@@ -1,6 +1,6 @@
 APIFILEPATH=docs/api/v1/
 APIFILES=README.md general.md cache_option.md node.md node_state.md storage.md storage_type.md virt_method.md virt_node.md vm.md vm_state.md
-PANDOC?=/home/bastelfreak/.cabal-sandbox/bin/pandoc
+PANDOC?=$(HOME)/.cabal-sandbox/bin/pandoc
 BUILDDIR=build
 
 all: virtapi.pdf

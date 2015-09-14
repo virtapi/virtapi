@@ -7,7 +7,7 @@ all: clean virtapi.pdf
 
 $(APIFILES): %: setup
 	cp $(APIFILEPATH)$@ $(BUILDDIR)/$@
-	sed --in-place '1s|^|\n\newpage\n|' $(BUILDDIR)/$@
+	sed --in-place '1s|^|\\newpage\n\n|' $(BUILDDIR)/$@
 	cat $(BUILDDIR)/$@ >> $(BUILDDIR)/SECOND.md
 
 setup:

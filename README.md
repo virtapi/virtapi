@@ -113,7 +113,7 @@ You can meet us in #virtapi at freenode.
 
 ---
 
-## contribution
+## Contribution
 We've defined our contribution rules in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---

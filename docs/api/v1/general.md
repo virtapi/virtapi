@@ -50,9 +50,11 @@ responseSuccess = {
 
 responseError = {
   "status": "error",
+  "status_code": number, // the HTTP status code such as 401, 404, ...
   "error_id": "program/useable/error/id",
   "message": "A message that can be displayed to the user",
   "data:" object or array, // additional information, only used if mentioned for a specific error
+}
 ```
 
 ### Errors

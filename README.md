@@ -122,3 +122,4 @@ We've defined our contribution rules in [CONTRIBUTING.md](CONTRIBUTING.md).
 + [API Design Guide](https://github.com/interagent/http-api-design)
 + [FileBin API](https://wiki.server-speed.net/projects/filebin/api)
 + [Ceph Talk at GPN15](https://media.ccc.de/browse/conferences/gpn/gpn15/gpn15-6629-ceph.html#video)
++ [Grape documentation](https://github.com/ruby-grape/grape)

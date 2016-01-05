@@ -1,4 +1,4 @@
-environment 'production'
+#environment 'production'
 
 pidfile 'puma.pid'
 

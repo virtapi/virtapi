@@ -9,7 +9,7 @@ require 'active_record'
 Dir.glob('./{models,controllers}/*.rb').each { |file| require file }
 
 ActiveRecord::Base.logger = Logger.new(STDERR)
-ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'dbfile.sqlite')
+ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: "#{__dir__}/dbfile.sqlite")
 
 before /.*/ do
   if request.path_info.match(/.json$/)

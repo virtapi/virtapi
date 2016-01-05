@@ -1,12 +1,11 @@
 require '../../sources/virtapi_app.rb'
 
 class InitializeStorage < ActiveRecord::Migration
-
-	def up
-		create_table :ceph_osd_nodes do |t|
+  def up
+    create_table :ceph_osd_nodes do |t|
       t.timestamps null: false
       t.belongs_to :node, index: true
-		end
+    end
 
     create_table :ceph_mon_nodes do |t|
       t.timestamps null: false
@@ -23,8 +22,7 @@ class InitializeStorage < ActiveRecord::Migration
       t.timestamps null: false
       t.string :name
     end
-		puts 'ran up method'
-	end
+  end
 end
 
 InitializeStorage.migrate(ARGV[0])

@@ -1,9 +1,8 @@
 require '../../sources/virtapi_app.rb'
 
 class InitializeStorage < ActiveRecord::Migration
-
-	def up
-		create_table :storages do |t|
+  def up
+    create_table :storages do |t|
       t.timestamps null: false
       t.belongs_to :domain, index: true
       t.belongs_to :storage_type, index: true
@@ -13,7 +12,7 @@ class InitializeStorage < ActiveRecord::Migration
       t.integer :read_ioops_limit
       t.integer :write_bps_limit
       t.integer :read_bps_limit
-		end
+    end
 
     create_table :cache_options do |t|
       t.timestamps null: false
@@ -26,8 +25,7 @@ class InitializeStorage < ActiveRecord::Migration
       t.string :name
       t.string :description
     end
-		puts 'ran up method'
-	end
+  end
 end
 
 InitializeStorage.migrate(ARGV[0])

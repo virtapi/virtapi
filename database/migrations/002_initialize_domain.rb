@@ -1,9 +1,8 @@
 require '../../sources/virtapi_app.rb'
 
 class InitializeDomain < ActiveRecord::Migration
-
-	def up
-		create_table :domains do |t|
+  def up
+    create_table :domains do |t|
       t.timestamps null: false
       t.belongs_to :domain_state, index: true
       t.belongs_to :node_method, index: true
@@ -13,15 +12,14 @@ class InitializeDomain < ActiveRecord::Migration
       t.integer :cputime_limit
       t.string :uuid
       t.string :location
-		end
+    end
 
     create_table :domain_states do |t|
       t.timestamps null: false
       t.string :name
       t.string :description
     end
-		puts 'ran up method'
-	end
+  end
 end
 
 InitializeDomain.migrate(ARGV[0])

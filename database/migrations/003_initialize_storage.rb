@@ -4,6 +4,7 @@ class InitializeStorage < ActiveRecord::Migration
 
 	def up
 		create_table :storages do |t|
+      t.timestamps null: false
       t.belongs_to :domain, index: true
       t.belongs_to :storage_type, index: true
       t.belongs_to :cache_option, index: true
@@ -15,11 +16,13 @@ class InitializeStorage < ActiveRecord::Migration
 		end
 
     create_table :cache_options do |t|
+      t.timestamps null: false
       t.string :name
       t.string :description
     end
 
     create_table :storage_types do |t|
+      t.timestamps null: false
       t.string :name
       t.string :description
     end

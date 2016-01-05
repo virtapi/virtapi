@@ -4,6 +4,7 @@ class InitializeDomain < ActiveRecord::Migration
 
 	def up
 		create_table :domains do |t|
+      t.timestamps null: false
       t.belongs_to :domain_state, index: true
       t.belongs_to :node_method, index: true
       t.integer :cores
@@ -15,6 +16,7 @@ class InitializeDomain < ActiveRecord::Migration
 		end
 
     create_table :domain_states do |t|
+      t.timestamps null: false
       t.string :name
       t.string :description
     end

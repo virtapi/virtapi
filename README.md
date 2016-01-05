@@ -130,3 +130,7 @@ We've defined our contribution rules in [CONTRIBUTING.md](CONTRIBUTING.md).
 + [Active Record Migrations](http://edgeguides.rubyonrails.org/active_record_migrations.html)
 + [Active Record Query Interface](http://guides.rubyonrails.org/active_record_querying.html)
 + [Dealing with json + html in Sinatra](https://github.com/Flipez/faster-than-bastelfreak/blob/master/ftb_app.rb#L22)
++ [Different solutions for Rake Tasks in Sinatra](https://stackoverflow.com/questions/19206764/how-can-i-load-activerecord-database-tasks-on-a-ruby-project-outside-rails)
++ [Gem to support Active Record in Sinatra](https://github.com/janko-m/sinatra-activerecord)
++ [Using Rails Rake Tasks in Sinatra 1](https://gist.github.com/drogus/6087979)
++ [Using Rails Rake Tasks in Sinatra 2](https://gist.github.com/abhiramm/6541592)

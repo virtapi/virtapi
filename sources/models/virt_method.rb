@@ -1,3 +1,3 @@
-class VirtMethod < Activerecord::Base
+class VirtMethod < ActiveRecord::Base
 
 end

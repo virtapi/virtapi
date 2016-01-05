@@ -120,6 +120,13 @@ We've defined our contribution rules in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Links and Sources
 + [API Design Guide](https://github.com/interagent/http-api-design)
-+ [FileBin API](https://wiki.server-speed.net/projects/filebin/api)
 + [Ceph Talk at GPN15](https://media.ccc.de/browse/conferences/gpn/gpn15/gpn15-6629-ceph.html#video)
-+ [Grape documentation](https://github.com/ruby-grape/grape)
++ [Sinatra MVC Framework](http://www.sitepoint.com/build-a-sinatra-mvc-framework/)
++ [Sinatra Modular vs. Classic Style](https://github.com/sinatra/sinatra#modular-vs-classic-style)
++ [Using Sinatra the modular way](https://www.safaribooksonline.com/library/view/sinatra-up-and/9781449306847/ch04.html)
++ [Sinatra with Rails-like MVC pattern](https://stackoverflow.com/questions/30421971/how-to-map-routes-to-controllers-in-sinatra/30470141#30470141)
++ [Combining Sinatra and Active Record](http://tutorials.jumpstartlab.com/topics/sinatra_with_active_record.html)
++ [Active Record Associations](http://guides.rubyonrails.org/association_basics.html#the-belongs-to-association)
++ [Active Record Migrations](http://edgeguides.rubyonrails.org/active_record_migrations.html)
++ [Active Record Query Interface](http://guides.rubyonrails.org/active_record_querying.html)
++ [Dealing with json + html in Sinatra](https://github.com/Flipez/faster-than-bastelfreak/blob/master/ftb_app.rb#L22)

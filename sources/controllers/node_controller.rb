@@ -1,9 +1,13 @@
 class NodeController < Sinatra::Base
+  require 'sinatra/contrib'
   set :views, File.expand_path('../../views', __FILE__)
 
-  get '/' do
+  get '/', :provides => [:html, :json] do
     @nodes = Node.all
-    haml :nodes
+    respond_to do |type|
+      type.html { haml :nodes }
+      type.json {json :nodes => @nodes }
+    end
   end
 
   # html view, sends stuff to /node as POST

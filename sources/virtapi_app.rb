@@ -1,9 +1,10 @@
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/contrib'
+require 'sinatra/json'
+require 'sinatra/logger'
 require 'haml'
 require 'json'
-require 'sinatra/logger'
 require 'active_record'
 
 Dir.glob('./{models,controllers}/*.rb').each { |file| require file }
@@ -25,5 +26,4 @@ before /.*/ do
     content_type :html, 'charset' => 'utf-8'
   end
 end
-
 

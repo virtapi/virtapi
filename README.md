@@ -134,3 +134,4 @@ We've defined our contribution rules in [CONTRIBUTING.md](CONTRIBUTING.md).
 + [Gem to support Active Record in Sinatra](https://github.com/janko-m/sinatra-activerecord)
 + [Using Rails Rake Tasks in Sinatra 1](https://gist.github.com/drogus/6087979)
 + [Using Rails Rake Tasks in Sinatra 2](https://gist.github.com/abhiramm/6541592)
++ [Dealing with json in Sinatra](http://www.sinatrarb.com/contrib/json.html)

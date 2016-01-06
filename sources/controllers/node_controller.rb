@@ -1,32 +1,34 @@
 class NodeController < Sinatra::Base
-
   set :views, File.expand_path('../../views', __FILE__)
 
   get '/' do
-    @nodes = Node.all()
-    'zomg it wörks'
+    @nodes = Node.all
+    haml :nodes
+  end
+
+  # html view, sends stuff to /node as POST
+  get '/new' do
+    @node = Node.new
+    haml :node
   end
 
   post '/' do
-    # how do we provide post data from the request to the .new()?
-    Node.new()
+    Node.new(params[:node])
   end
 
   delete '/:id' do
     Node.delete(params[:id])
   end
 
-  patch '/:id' do
-   #uhm yeah...
+  put '/:id' do
+    @node = Node.find(params[:id])
+    # how do we update all provided params?
+    # remove id, than pass hash to node.update()?
+    redirect to("/nodes/#{node.id}")
   end
 
-  get '/hello' do
-    #puts 'hello world'
-    erb :home
-  end
-  
   get '/:id' do
-    Node.find(params[:id])
+    @node = Node.find(params[:id])
+    haml :node
   end
-
 end

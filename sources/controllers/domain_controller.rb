@@ -1,7 +1,7 @@
 namespace '/domains' do
   get do
-    @nodes = Domain.all()
-    json :node => @nodes
+    @domain = Domain.all()
+    json :domain => @domains
   end
 
   post do
@@ -23,7 +23,7 @@ namespace '/domains' do
     end
 
     get do
-      json :node => @node
+      json :domain => @domain
     end
   end
 end

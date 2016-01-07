@@ -23,7 +23,7 @@ namespace '/domain_states' do
     end
 
     get do
-      json :node_state => @node_state
+      json :domain_state => @domain_state
     end
   end
 end

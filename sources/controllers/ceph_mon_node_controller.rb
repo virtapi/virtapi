@@ -5,7 +5,7 @@ namespace '/ceph_mon_nodes' do
   end
 
   post do
-    Domain.create!(params[:ceph_mon_node])
+    CephMonNode.create!(params[:ceph_mon_node])
   end
 
   before %r{\A/(?<id>\d+)/?.*} do

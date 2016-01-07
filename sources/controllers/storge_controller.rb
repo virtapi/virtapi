@@ -1,6 +1,6 @@
 namespace '/storages' do
   get do
-    @storage = Storage.all()
+    @storages = Storage.all()
     json :storage => @storages
   end
 

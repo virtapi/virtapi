@@ -5,9 +5,7 @@ namespace '/domains' do
   end
 
   post do
-    # how do we provide post data from the request to the .new()?
-      # puuuh man, dunno. ask your node friend
-    Domain.new()
+    Domain.create!(params[:domain]) # this will raise
   end
 
   before %r{\A/(?<id>\d+)/?.*} do
@@ -20,11 +18,10 @@ namespace '/domains' do
     end
 
     patch do
-      @domain.try(:patch_the_shit_out_of_me) || :nope
+      @domain.assign_attributes(params[:domain]).save! # this will raise
     end
 
     get do
-      @domain.to_json
     end
   end
 end

@@ -9,14 +9,9 @@ namespace '/nodes' do
   end
 
   # html view, sends stuff to /node as POST
-  get '/new' do             #
-    @node = Node.new        # dafuq is this
-    haml :node              #
-  end                       #
-
-  post '/' do               #
-    Node.new(params[:node]) # dafuq is that
-  end                       #
+  post '/' do
+    Node.new(params[:node])
+  end
 
   before %r{\A/(?<id>\d+)/?.*} do
     @node = Node.find(params[:id])
@@ -29,10 +24,7 @@ namespace '/nodes' do
     end
 
     put do
-      # how do we update all provided params?
-        # there must be a way
-      # remove id, than pass hash to node.update()?
-        # doesn't sound THAT great, .assign_attributes might be a good choice?
+      @node.assign_attributes(params[:node]).save! #this will raise on error
       redirect to("/nodes/#{@node.id}")
     end
 

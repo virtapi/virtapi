@@ -1,7 +1,7 @@
 namespace '/domain_states' do
   get do
     @domain_states = DomainState.all()
-    json :domain_states => @domain_states
+    json :domain_state => @domain_states
   end
 
   post do

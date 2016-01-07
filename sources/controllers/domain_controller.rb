@@ -1,25 +1,27 @@
-class DomainController < Sinatra::Base
-
-  get '/domain' do
-    @nodes = Domain.all()
+namespace '/domains' do
+  get do
+    @nodes = Domain.all() # wat
     erb :index
   end
 
-  post '/domain' do
-    # how do we provide post data from the request to the .new()?
-    Domain.new()
+  post do
+    Domain.create!(params[:domain]) # this will raise
   end
 
-  delete '/domain/:id' do
-    Domain.delete(params[:id])
+  before %r{\A/(?<id>\d+)/?.*} do
+    @domain = Domain.find(params[:id])
   end
 
-  patch '/domain/:id' do
-   #uhm yeah...
-  end
+  namespace '/:id' do
+    delete do
+      @domain.delete
+    end
 
-  get '/domain/:id' do
-    Domain.find(params[:id])
-  end
+    patch do
+      @domain.assign_attributes(params[:domain]).save! # this will raise
+    end
 
+    get do
+    end
+  end
 end

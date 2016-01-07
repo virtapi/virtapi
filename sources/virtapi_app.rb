@@ -1,11 +1,12 @@
 require 'sinatra'
-require 'sinatra/base'
 require 'sinatra/contrib'
-require 'sinatra/json'
 require 'sinatra/logger'
 require 'haml'
 require 'json'
 require 'active_record'
+
+require_relative 'models/node.rb' #preload node model because of Dir.glob order fuckup
+                                  #TODO: define a hierarchy of models to load
 
 Dir.glob('./{models,controllers}/*.rb').each { |file| require file }
 
@@ -26,4 +27,3 @@ before /.*/ do
     content_type :html, 'charset' => 'utf-8'
   end
 end
-

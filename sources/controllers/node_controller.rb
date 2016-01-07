@@ -1,8 +1,6 @@
-class NodeController < Sinatra::Base
-  require 'sinatra/contrib'
-  set :views, File.expand_path('../../views', __FILE__)
-
-  get '/', :provides => [:html, :json] do
+set :views, File.expand_path('../../views', __FILE__)
+namespace '/nodes' do
+  get '', :provides => [:html, :json] do
     @nodes = Node.all
     respond_to do |type|
       type.html { haml :nodes }
@@ -11,28 +9,27 @@ class NodeController < Sinatra::Base
   end
 
   # html view, sends stuff to /node as POST
-  get '/new' do
-    @node = Node.new
-    haml :node
-  end
-
   post '/' do
     Node.new(params[:node])
   end
 
-  delete '/:id' do
-    Node.delete(params[:id])
+  before %r{\A/(?<id>\d+)/?.*} do
+    @node = Node.find(params[:id])
   end
 
-  put '/:id' do
-    @node = Node.find(params[:id])
-    # how do we update all provided params?
-    # remove id, than pass hash to node.update()?
-    redirect to("/nodes/#{node.id}")
-  end
+  namespace '/:id' do
 
-  get '/:id' do
-    @node = Node.find(params[:id])
-    haml :node
+    delete do
+      @node.delete
+    end
+
+    put do
+      @node.assign_attributes(params[:node]).save! #this will raise on error
+      redirect to("/nodes/#{@node.id}")
+    end
+
+    get do
+      haml :node
+    end
   end
 end

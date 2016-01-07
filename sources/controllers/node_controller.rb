@@ -1,16 +1,11 @@
-set :views, File.expand_path('../../views', __FILE__)
 namespace '/nodes' do
-  get '', :provides => [:html, :json] do
+  get do
     @nodes = Node.all
-    respond_to do |type|
-      type.html { haml :nodes }
-      type.json {json :nodes => @nodes }
-    end
+    json :nodes => @nodes
   end
 
-  # html view, sends stuff to /node as POST
-  post '/' do
-    Node.new(params[:node])
+  post do
+    Node.create!(params[:node])
   end
 
   before %r{\A/(?<id>\d+)/?.*} do
@@ -18,18 +13,17 @@ namespace '/nodes' do
   end
 
   namespace '/:id' do
-
     delete do
       @node.delete
     end
 
     put do
-      @node.assign_attributes(params[:node]).save! #this will raise on error
+      @node.assign_attributes(params[:node]).save!
       redirect to("/nodes/#{@node.id}")
     end
 
     get do
-      haml :node
+      json :node => @node
     end
   end
 end

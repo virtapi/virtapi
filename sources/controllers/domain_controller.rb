@@ -1,11 +1,11 @@
 namespace '/domains' do
   get do
-    @nodes = Domain.all() # wat
-    erb :index
+    @nodes = Domain.all()
+    json :node => @nodes
   end
 
   post do
-    Domain.create!(params[:domain]) # this will raise
+    Domain.create!(params[:domain])
   end
 
   before %r{\A/(?<id>\d+)/?.*} do
@@ -18,10 +18,12 @@ namespace '/domains' do
     end
 
     patch do
-      @domain.assign_attributes(params[:domain]).save! # this will raise
+      @domain.assign_attributes(params[:domain]).save!
+      redirect to("/domains/#{@domain.id}")
     end
 
     get do
+      json :node => @node
     end
   end
 end

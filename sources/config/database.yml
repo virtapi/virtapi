@@ -19,8 +19,8 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: dbfile-prod.sqlite
+  adapter: postgresql
+  encoding: unicode
+  database: virtapi
+	server: 127.0.0.1
   pool: 5
-  timeout: 5000
-

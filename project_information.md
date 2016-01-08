@@ -1,23 +1,20 @@
-\newpage
-
 # Information about the project process
 
 ## Contents
 + [Implementation](#implementation)
-  - [Sinatra](#sinatra)
-  - [sqlite3](#sqlite3)
-  - [activerecord](#activerecord)
-  - [puma](#puma)
-  - [Rake](#rake)
-  - [Bundler](#bundler)
 + [Usage](#usage)
-  - [Clone the Repo](#clone-the-repo)
-  - [Install Dependencies](#install-dependencies)
-  -	[Setup the Database](#setup-the-database)
-  -	[Import seed data](#import-seed-data)
-  -	[Start the Webserver](#start-the-webserver)
-  -	[List all available Rake Tasks](#list-all-available-rake-tasks)
+    - [Clone the Repo](#clone-the-repo)
+    - [Install Dependencies](#install-dependencies)
+    -	[Setup the Database](#setup-the-database)
+    -	[Import seed data](#import-seed-data)
+    -	[Start the Webserver](#start-the-webserver)
+    -	[List all available Rake Tasks](#list-all-available-rake-tasks)
 +	[Projectmanagement](#projectmangement)
++ [Software Details](#software-details)
+		- [Concept](#concept)
+		- [Models](#models)
+    - [Puma](#puma)
+    - [ActiveRecord](#activerecord)
 + [Current State](#current-state)
 
 ---
@@ -100,5 +97,147 @@ We are using Kanban as our development modell, [Waffle](https://waffle.io/) prov
 
 ---
 
+## Software Details
+### Concept
+The MVC paradigm is very common in nowadays software projects and considered as state of the art so we want to use it as well. Our current implemention only support JSON output of our objects (as descriped in the API documentation) and JSON encoded input (as a Restful API is supposed to) so we do not have any views. All [Models](https://github.com/virtapi/virtapi/tree/dev-sinatra/sources/models) are child classes from ActiveRecord::Base, this allows us an easy mapping from objects to any relational database. Every [controller](https://github.com/virtapi/virtapi/tree/dev-sinatra/sources/controllers) is named after a model, they provide a sinatra namespace also named after the model and host the basic CRUD operations (Create Read Update Delete).
+
+### Models
+Thanks to ActiveRecord our models can be very short:
+```ruby
+class CacheOption < ActiveRecord::Base
+end
+```
+The above example is our complete and working model for CaheOption. Some models are a bit more complex if they have relations to others:
+```ruby
+class Domain < ActiveRecord::Base
+
+  has_many :interfaces
+  has_many :ipv4s, through: :interfaces
+  has_many :ipv6s, through: :interfaces
+  has_many :vlans, through: :interfaces
+  has_many :storages
+  has_one :domain_state
+
+  belongs_to :node_method
+end
+```
+Our Domain model has 0 to N interfaces, every Interface has 0 to N Ipv4, Ipv6 and Vlans, so also a Domain owns them through an Interface. We do not need to specify these indirect relations, but it helps ActiveRecord to cache data als also provides useful functions like:
+```ruby
+domain = Domain.find(1)
+domain.ipv4.all
+```
+
+Without this notation you have to do (which is considered as bad practice):
+```ruby
+domain = Domain.find(1)
+domain.interface.all.ipv4.all
+```
+
+### Puma
+Puma is an awesome, in Ruby written, webserver. It needs just a very tiny configuration:
+```ruby
+pidfile 'puma.pid'
+threads 0,1
+workers 1
+#daemonize true
+bind 'tcp://127.0.0.1:4567'
+```
+
+This will start Puma with one worker with one thread. You need root priviledges if you want him to bind at ports below 1024 (well known port range).
+
+### ActiveRecord
+ActiveRecord offer so many cool features, we will take a look at a few of them. It supports several database backends, we use sqlite and postgres in our case, first one for testing and development, the latter one for the production usage. Both RDBMS have huge differences, but ActiveRecord abstracts them nicely and also provides migrations. A migration is an operation which modofies the database, for example adding a colum or dropping it. A migration can be run on any databasebackend that ActiveRecord supports.
+```ruby
+require '../../sources/virtapi_app.rb'
+
+class InitializeNodeTable < ActiveRecord::Migration
+  def change
+    create_table :nodes do |t|
+      t.timestamps null: false
+      t.belongs_to :node_state, index: true
+      t.string :fqdn
+      t.string :location
+    end
+
+    create_table :node_states do |t|
+      t.timestamps null: false
+      t.string :name
+      t.string :description
+    end
+  end
+end
+
+InitializeNodeTable.migrate(ARGV[0])
+```
+
+This is our migration for setting up the Node Model related stuff. This Migration can be used to add the tables but also to remove them. ActiveRecord will automatically add the attributes to our model.
+
+We also own a seeds.rb, this file contains seed data (data that is needed in the database to actually use the app):
+```ruby
+require "#{__dir__}/../sources/virtapi_app.rb"
+
+# Create all Cache Options for storage
+cache_options = [
+  ['default', 'the hypervisor default'],
+  ['none', 'nobody knows'],
+  ['writethrough', 'do not use the cache'],
+  ['writeback', 'use the cache'],
+  ['directsync' 'even ignore page cache'],
+  ['unsafe', 'cache allll the things, ignore sync() requests']
+]
+cache_options.each do |option|
+  CacheOption.create(name: option[0], description: option[1])
+end
+# create storage types
+# wat?
+
+# create virtualization methods
+methods = [
+  'KVM',
+  'Qemu',
+  'Docker',
+  'Parallels Cloud Server',
+  'Parallels Server Bare Metall',
+  'systemd-nspawn'
+]
+methods.each do |method|
+  VirtMethod.create(name: method)
+end
+
+# create all node states
+state_list = [
+  ['stopped', 'node is stopped'],
+  ['running', 'node is running'],
+  ['deactivated', 'someone disabled this node'],
+  ['maintenance' 'there is currently maintenance going on']
+]
+state_list.each do |state|
+  NodeState.create(name: state[0], description: state[1])
+end
+
+# create all domain states
+state_list = [
+  ['stopped', 'domain is stopped'],
+  ['running', 'domain is running'],
+  ['deactivated', 'an admin disabled this domain'],
+  ['maintenance' 'there is currently maintenance on the host system, keep calm']
+]
+state_list.each do |state|
+  DomainState.create(name: state[0], description: state[1])
+end
+
+# create all vlans
+(0..4095).each do |id|
+  Vlan.create(tag: id)
+end
+```
+
+This adds data to all the relevant tables, also we autogenerate the vlans. This can be done via one of our Rake tasks:
+```ruby
+bundle exec rake db:seed
+```
+
+---
+
 ## Current State
-This project started in the sommer of 2014, right now (december 2015) we have got a working solution of our API which provides JSON output of our objects and accepts JSON as the input content type. Right now we don't support HTML/MSGPACK content type, we will add this feature in the next version. We're also provding an API documention for users at the end.
+This project started in the sommer of 2014, right now (december 2015) we have got a working solution of our API which provides JSON output of our objects and accepts JSON as the input content type. Right now we don't support HTML/MSGPACK content type, we will add this feature in the next version. We're also provding an API documention for users at the end. The models were a bit modified, in the original version, the interface model was only related to virtual machines. This behavior got changed and now nodes are also related to it and do not store their IP configuration in their model.

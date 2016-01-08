@@ -7,6 +7,7 @@ Contributors:
 + Silvio Knizek
 + Carsten Menne
 + Florian Pritz
++ Robert Müller
 
 ---
 

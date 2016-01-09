@@ -22,5 +22,5 @@ production:
   adapter: postgresql
   encoding: unicode
   database: virtapi
-	server: 127.0.0.1
+  server: 127.0.0.1
   pool: 5

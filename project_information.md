@@ -5,17 +5,18 @@
 + [Usage](#usage)
     - [Clone the Repo](#clone-the-repo)
     - [Install Dependencies](#install-dependencies)
-    -	[Setup the Database](#setup-the-database)
-    -	[Import seed data](#import-seed-data)
-    -	[Start the Webserver](#start-the-webserver)
-    -	[List all available Rake Tasks](#list-all-available-rake-tasks)
-+	[Projectmanagement](#projectmangement)
+    - [Setup the Database](#setup-the-database)
+    - [Import seed data](#import-seed-data)
+    - [Start the Webserver](#start-the-webserver)
+    - [List all available Rake Tasks](#list-all-available-rake-tasks)
++ [Projectmanagement](#projectmanagement)
 + [Software Details](#software-details)
-		- [Concept](#concept)
-		- [Models](#models)
+    - [Concept](#concept)
+    - [Models](#models)
     - [Puma](#puma)
     - [ActiveRecord](#activerecord)
 + [Current State](#current-state)
++   - [Costs and stats](#costs-and-stats)
 
 ---
 
@@ -241,3 +242,6 @@ bundle exec rake db:seed
 
 ## Current State
 This project started in the sommer of 2014, right now (december 2015) we have got a working solution of our API which provides JSON output of our objects and accepts JSON as the input content type. Right now we don't support HTML/MSGPACK content type, we will add this feature in the next version. We're also provding an API documention for users at the end. The models were a bit modified, in the original version, the interface model was only related to virtual machines. This behavior got changed and now nodes are also related to it and do not store their IP configuration in their model.
+
+### Costs and stats
+This project is completly created and mantained by volunteers so there are no costs for employees. We have got detailed statistics about [the contributions](https://github.com/virtapi/virtapi/graphs/contributors), their relation to [working days](https://github.com/virtapi/virtapi/graphs/commit-activity) and also a [punch card](https://github.com/virtapi/virtapi/graphs/punch-card) which shows the correlation between all days of the week and the contribution across the complete project.

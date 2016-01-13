@@ -71,7 +71,7 @@ The paragraph [Requirements](#requirements) defines how people (admins and custo
 + Dedicated backup network on each node
 + Dedicated storage network on each node
 + Snapshots for storage resources
-+ Update the [create_virt_node](database/procedures/create_virt_node.sql) procedure (more infos inside the file)
++ Update the [create_virt_node](sources/database/procedures/create_virt_node.sql) procedure (more infos inside the file)
 + Add more information about the installimage
 + Validate [Open vSwitch](http://openvswitch.org/). It offers many cool featues but it is complex, do we really need it?
 + Update Ceph tables
@@ -105,7 +105,7 @@ All requirements should be listed in the paragraphs [Project description](#proje
 ---
 
 ## Entity Relationship Model
-You can find the latest ERD from the current branch [here](database/images/virtapi.svg).
+You can find the latest ERD from the current branch [here](sources/database/images/virtapi.svg).
 
 ---
 

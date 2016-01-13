@@ -1,4 +1,4 @@
-require_relative '../../sources/virtapi_app.rb'
+require_relative '../../virtapi_app.rb'
 
 class InitializeVirt < ActiveRecord::Migration
   def up

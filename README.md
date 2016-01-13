@@ -7,6 +7,7 @@ Contributors:
 + Silvio Knizek
 + Carsten Menne
 + Florian Pritz
++ Robert Müller
 
 ---
 
@@ -120,6 +121,18 @@ We've defined our contribution rules in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Links and Sources
 + [API Design Guide](https://github.com/interagent/http-api-design)
-+ [FileBin API](https://wiki.server-speed.net/projects/filebin/api)
 + [Ceph Talk at GPN15](https://media.ccc.de/browse/conferences/gpn/gpn15/gpn15-6629-ceph.html#video)
-+ [Grape documentation](https://github.com/ruby-grape/grape)
++ [Sinatra MVC Framework](http://www.sitepoint.com/build-a-sinatra-mvc-framework/)
++ [Sinatra Modular vs. Classic Style](https://github.com/sinatra/sinatra#modular-vs-classic-style)
++ [Using Sinatra the modular way](https://www.safaribooksonline.com/library/view/sinatra-up-and/9781449306847/ch04.html)
++ [Sinatra with Rails-like MVC pattern](https://stackoverflow.com/questions/30421971/how-to-map-routes-to-controllers-in-sinatra/30470141#30470141)
++ [Combining Sinatra and Active Record](http://tutorials.jumpstartlab.com/topics/sinatra_with_active_record.html)
++ [Active Record Associations](http://guides.rubyonrails.org/association_basics.html#the-belongs-to-association)
++ [Active Record Migrations](http://edgeguides.rubyonrails.org/active_record_migrations.html)
++ [Active Record Query Interface](http://guides.rubyonrails.org/active_record_querying.html)
++ [Dealing with json + html in Sinatra](https://github.com/Flipez/faster-than-bastelfreak/blob/master/ftb_app.rb#L22)
++ [Different solutions for Rake Tasks in Sinatra](https://stackoverflow.com/questions/19206764/how-can-i-load-activerecord-database-tasks-on-a-ruby-project-outside-rails)
++ [Gem to support Active Record in Sinatra](https://github.com/janko-m/sinatra-activerecord)
++ [Using Rails Rake Tasks in Sinatra 1](https://gist.github.com/drogus/6087979)
++ [Using Rails Rake Tasks in Sinatra 2](https://gist.github.com/abhiramm/6541592)
++ [Dealing with json in Sinatra](http://www.sinatrarb.com/contrib/json.html)

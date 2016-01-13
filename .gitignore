@@ -1,2 +1,5 @@
 build/
 database/workbench/virtapi.mwb.bak
+Gemfile.lock
+sources/dbfile.sqlite
+sources/puma.pid

@@ -109,7 +109,7 @@ In der [Projektbeschreibung](#Projektbeschreibung) und in den [Anforderungen](#A
 ---
 
 ## Entity Relationship Modell
-![virtapi ERD](database/images/virtapi.svg)
+![virtapi ERD](sources/database/images/virtapi.svg)
 
 ---
 

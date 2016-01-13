@@ -17,7 +17,7 @@ virtapi.pdf: $(APIFILES)
 	cp README.md $(BUILDDIR)/FIRST.md
 	cp project_information.md $(BUILDDIR)/
 	cp CONTRIBUTING.md $(BUILDDIR)/
-	sed --in-place --expression 's|database/images/virtapi.svg|https://rawgit.com/virtapi/virtapi/master/database/images/virtapi.svg|' $(BUILDDIR)/FIRST.md
+	sed --in-place --expression 's|database/images/virtapi.svg|https://rawgit.com/virtapi/virtapi/master/source/database/images/virtapi.svg|' $(BUILDDIR)/FIRST.md
 	sed --in-place --expression '/#links-and-sources.*/a \+ [API Call Documentation](#api-call-documentation)' $(BUILDDIR)/FIRST.md
 	sed --in-place '/defined our contribution rules in \[CONTRIBUTING.md\]/d' $(BUILDDIR)/FIRST.md
 	sed --in-place --regexp-extended 's/(#{1,3})/\1#/g' $(BUILDDIR)/CONTRIBUTING.md

@@ -1,11 +1,10 @@
 namespace '/vlans' do
   get do
-    @vlans = Vlan.all()
-    json :vlan => @vlans
+    return_resource object: Vlan.all()
   end
 
   post do
-    Vlan.create!(params[:vlan])
+    return_resource object: Vlan.create!(params[:vlan])
   end
 
   before %r{\A/(?<id>\d+)/?.*} do
@@ -14,16 +13,16 @@ namespace '/vlans' do
 
   namespace '/:id' do
     delete do
-      @vlan.delete
+      return_resource object: @vlan.delete
     end
 
     patch do
       @vlan.assign_attributes(params[:vlan]).save!
-      redirect to("/vlans/#{@vlan.id}")
+      return_resource object: @vlan
     end
 
     get do
-      json :vlan => @vlan
+      return_resource object: @vlan
     end
   end
 end

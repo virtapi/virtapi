@@ -1,11 +1,10 @@
 namespace '/interfaces' do
   get do
-    @interfaces = Interface.all()
-    json :interface => @interfaces
+    return_resource object: Interface.all()
   end
 
   post do
-    Interface.create!(params[:interface])
+    return_resource object: Interface.create!(params[:interface])
   end
 
   before %r{\A/(?<id>\d+)/?.*} do
@@ -14,16 +13,16 @@ namespace '/interfaces' do
 
   namespace '/:id' do
     delete do
-      @interface.delete
+      return_resource object: @interface.delete
     end
 
     patch do
       @interface.assign_attributes(params[:interface]).save!
-      redirect to("/interfaces/#{@interface.id}")
+      return_resource object: @interface
     end
 
     get do
-      json :interface => @interface
+      return_resource object: @interface
     end
   end
 end

@@ -1,11 +1,10 @@
 namespace '/ceph_osd_nodes' do
   get do
-    @ceph_osd_nodes = CephOsdNode.all()
-    json :ceph_osd_node => @ceph_osd_nodes
+    return_resource object: CephOsdNode.all()
   end
 
   post do
-    CephOsdNode.create!(params[:ceph_osd_node])
+    return_resource object: CephOsdNode.create!(params[:ceph_osd_node])
   end
 
   before %r{\A/(?<id>\d+)/?.*} do
@@ -14,16 +13,16 @@ namespace '/ceph_osd_nodes' do
 
   namespace '/:id' do
     delete do
-      @ceph_osd_node.delete
+      return_resource object: @ceph_osd_node.delete
     end
 
     patch do
       @ceph_osd_node.assign_attributes(params[:ceph_osd_node]).save!
-      redirect to("/ceph_osd_nodes/#{@ceph_osd_node.id}")
+      return_resource object: @ceph_osd_node
     end
 
     get do
-      json :cephosdd_node => @ceph_osd_node
+      return_resource object: @ceph_osd_node
     end
   end
 end

@@ -1,11 +1,10 @@
 namespace '/domain_states' do
   get do
-    @domain_states = DomainState.all()
-    json :domain_state => @domain_states
+    return_resource object: DomainState.all()
   end
 
   post do
-    DomainState.create!(params[:domain_state])
+    return_resource object: DomainState.create!(params[:domain_state])
   end
 
   before %r{\A/(?<id>\d+)/?.*} do
@@ -14,16 +13,16 @@ namespace '/domain_states' do
 
   namespace '/:id' do
     delete do
-      @domain_state.delete
+      return_resource object: @domain_state.delete
     end
 
     patch do
       @domain_state.assign_attributes(params[:domain_state]).save!
-      redirect to("/domain_states/#{@domain_state.id}")
+      return_resource object: @domain_state
     end
 
     get do
-      json :domain_state => @domain_state
+      return_resource object: @domain_state
     end
   end
 end

@@ -1,11 +1,10 @@
 namespace '/ceph_mon_nodes' do
   get do
-    @ceph_mon_nodes = CephMonNode.all()
-    json :ceph_mon_node => @ceph_mon_nodes
+    return_resource object: CephMonNode.all()
   end
 
   post do
-    CephMonNode.create!(params[:ceph_mon_node])
+    return_resource object: CephMonNode.create!(params[:ceph_mon_node])
   end
 
   before %r{\A/(?<id>\d+)/?.*} do
@@ -14,16 +13,16 @@ namespace '/ceph_mon_nodes' do
 
   namespace '/:id' do
     delete do
-      @ceph_mon_node.delete
+      return_resource object: @ceph_mon_node.delete
     end
 
     patch do
       @ceph_mon_node.assign_attributes(params[:ceph_mon_node]).save!
-      redirect to("/ceph_mon_nodes/#{@ceph_mon_node.id}")
+      return_resource object: @ceph_mon_node
     end
 
     get do
-      json :ceph_mon_node => @ceph_mon_node
+      return_resource object: @ceph_mon_node
     end
   end
 end

@@ -1,4 +1,4 @@
-require '../../sources/virtapi_app.rb'
+require_relative '../../sources/virtapi_app.rb'
 
 class InitializeDomain < ActiveRecord::Migration
   def up

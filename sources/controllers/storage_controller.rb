@@ -1,11 +1,10 @@
 namespace '/storages' do
   get do
-    @storages = Storage.all()
-    json :storage => @storages
+    return_resource object: Storage.all()
   end
 
   post do
-    Storage.create!(params[:storage])
+    return_resource object: Storage.create!(params[:storage])
   end
 
   before %r{\A/(?<id>\d+)/?.*} do
@@ -14,16 +13,16 @@ namespace '/storages' do
 
   namespace '/:id' do
     delete do
-      @storage.delete
+      return_resource object: @storage.delete
     end
 
     patch do
       @storage.assign_attributes(params[:storage]).save!
-      redirect to("/storages/#{@storage.id}")
+      return_resource object: @storage
     end
 
     get do
-      json :storage => @storage
+      return_resource object: @storage
     end
   end
 end

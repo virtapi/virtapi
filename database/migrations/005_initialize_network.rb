@@ -1,4 +1,4 @@
-require '../../sources/virtapi_app.rb'
+require_relative '../../sources/virtapi_app.rb'
 
 class InitializeNetwork < ActiveRecord::Migration
   def up

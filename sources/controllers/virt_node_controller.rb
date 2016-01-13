@@ -1,11 +1,10 @@
 namespace '/virt_nodes' do
   get do
-    @virt_nodes = VirtNpde.all()
-    json :virt_node => @virt_node
+    return_resource object: VirtNpde.all()
   end
 
   post do
-    VirtNode.create!(params[:virt_node])
+    return_resource object: VirtNode.create!(params[:virt_node])
   end
 
   before %r{\A/(?<id>\d+)/?.*} do
@@ -14,16 +13,16 @@ namespace '/virt_nodes' do
 
   namespace '/:id' do
     delete do
-      @virt_node.delete
+      return_resource object: @virt_node.delete
     end
 
     patch do
       @virt_node.assign_attributes(params[:virt_node]).save!
-      json :virt_node => @virt_node
+      return_resource object: @virt_node
     end
 
     get do
-      json :virt_node => @virt_node
+      return_resource object: @virt_node
     end
   end
 end

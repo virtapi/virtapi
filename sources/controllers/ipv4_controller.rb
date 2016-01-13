@@ -1,11 +1,11 @@
 namespace '/ipv4s' do
   get do
     @ipv4s = Ipv4.all()
-    json ipv4: @ipv4s
+    return_resource object: @ipv4s
   end
 
   post do
-    json ipv4: Ipv4.create!(params[:ipv4])
+    return_resource object: Ipv4.create!(params[:ipv4])
   end
 
   before %r{\A/(?<id>\d+)/?.*} do
@@ -14,23 +14,17 @@ namespace '/ipv4s' do
 
   namespace '/:id' do
     delete do
-      json ipv4: @ipv4.delete
+      return_resource object: @ipv4.delete
     end
 
     patch do
       @ipv4.assign_attributes(params[:ipv4]).save!
-      resource
+      return_resource object: @ipv4
     end
 
     get do
-      resource
+      return_resource object: @ipv4
     end
-  end
-
-private
-
-  def resource as_json: true
-    as_json ? json(ipv4: @ipv4) : @ipv4
   end
 
 end

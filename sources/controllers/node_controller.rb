@@ -1,11 +1,10 @@
 namespace '/nodes' do
   get do
-    @nodes = Node.all
-    json :nodes => @nodes
+    return_resource object: Node.all
   end
 
   post do
-    Node.create!(params[:node])
+    return_resource object: Node.create!(params[:node])
   end
 
   before %r{\A/(?<id>\d+)/?.*} do
@@ -14,16 +13,16 @@ namespace '/nodes' do
 
   namespace '/:id' do
     delete do
-      @node.delete
+      return_resource object: @node.delete
     end
 
     put do
       @node.assign_attributes(params[:node]).save!
-      json :node => @node
+      return_resource object: @node
     end
 
     get do
-      json :node => @node
+      return_resource object: @node
     end
   end
 end

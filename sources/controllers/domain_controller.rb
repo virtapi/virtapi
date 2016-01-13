@@ -1,11 +1,10 @@
 namespace '/domains' do
   get do
-    @domain = Domain.all()
-    json :domain => @domains
+    return_resource object: Domain.all()
   end
 
   post do
-    Domain.create!(params[:domain])
+    return_resource object: Domain.create!(params[:domain])
   end
 
   before %r{\A/(?<id>\d+)/?.*} do
@@ -14,16 +13,16 @@ namespace '/domains' do
 
   namespace '/:id' do
     delete do
-      @domain.delete
+      return_resource object: @domain.delete
     end
 
     patch do
       @domain.assign_attributes(params[:domain]).save!
-      json :domain => @domain
+      return_resource object: @domain
     end
 
     get do
-      json :domain => @domain
+      return_resource object: @domain
     end
   end
 end

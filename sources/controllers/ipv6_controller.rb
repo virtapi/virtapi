@@ -1,11 +1,10 @@
 namespace '/ipv6s' do
   get do
-    @ipv6s = Ipv6.all()
-    json :ipv6 => @ipv6s
+    return_resource object: Ipv6.all()
   end
 
   post do
-    Ipv6.create!(params[:ipv6])
+    return_resource object: Ipv6.create!(params[:ipv6])
   end
 
   before %r{\A/(?<id>\d+)/?.*} do
@@ -14,16 +13,16 @@ namespace '/ipv6s' do
 
   namespace '/:id' do
     delete do
-      @ipv6.delete
+      return_resource object: @ipv6.delete
     end
 
     patch do
       @ipv6.assign_attributes(params[:ipv6]).save!
-      json :ipv6 => @ipv6
+      return_resource object: @ipv6
     end
 
     get do
-      json :ipv6 => @ipv6
+      return_resource object: @ipv6
     end
   end
 end

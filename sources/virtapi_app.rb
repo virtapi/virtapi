@@ -8,7 +8,7 @@ require 'active_record'
 require_relative 'models/node.rb' #preload node model because of Dir.glob order fuckup
                                   #TODO: define a hierarchy of models to load
 
-Dir.glob('./{models,controllers}/*.rb').each { |file| require file }
+Dir.glob('./{models,controllers,lib}/*.rb').each { |file| require file }
 
 @environment = ENV['RACK_ENV'] || 'development'
 @dbconfig = YAML.load(File.read('config/database.yml'))

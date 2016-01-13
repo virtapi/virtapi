@@ -19,7 +19,7 @@ namespace '/nodes' do
 
     put do
       @node.assign_attributes(params[:node]).save!
-      redirect to("/nodes/#{@node.id}")
+      json :node => @node
     end
 
     get do

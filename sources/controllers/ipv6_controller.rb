@@ -19,7 +19,7 @@ namespace '/ipv6s' do
 
     patch do
       @ipv6.assign_attributes(params[:ipv6]).save!
-      redirect to("/ipv6s/#{@ipv6.id}")
+      json :ipv6 => @ipv6
     end
 
     get do

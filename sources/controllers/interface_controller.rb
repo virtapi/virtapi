@@ -19,7 +19,7 @@ namespace '/interfaces' do
 
     patch do
       @interface.assign_attributes(params[:interface]).save!
-      redirect to("/interfaces/#{@interface.id}")
+      json :interface => @interface
     end
 
     get do

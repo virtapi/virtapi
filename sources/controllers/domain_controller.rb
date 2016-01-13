@@ -19,7 +19,7 @@ namespace '/domains' do
 
     patch do
       @domain.assign_attributes(params[:domain]).save!
-      redirect to("/domains/#{@domain.id}")
+      json :domain => @domain
     end
 
     get do

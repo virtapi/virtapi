@@ -19,7 +19,7 @@ namespace '/storage_types' do
 
     patch do
       @storage_type.assign_attributes(params[:storage_type]).save!
-      redirect to("/storage_types/#{@storage_type.id}")
+      json :storage_type => @storage_type
     end
 
     get do

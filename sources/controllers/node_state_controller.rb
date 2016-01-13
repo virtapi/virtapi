@@ -19,7 +19,7 @@ namespace '/node_states' do
 
     patch do
       @node_state.assign_attributes(params[:node_state]).save!
-      redirect to("/node_states/#{@node_state.id}")
+      json :node_state => @node_state
     end
 
     get do

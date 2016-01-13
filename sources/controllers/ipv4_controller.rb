@@ -19,7 +19,7 @@ namespace '/ipv4s' do
 
     patch do
       @ipv4.assign_attributes(params[:ipv4]).save!
-      redirect to("/ipv4s/#{@ipv4.id}")
+      json :ipv4 => @ipv4
     end
 
     get do

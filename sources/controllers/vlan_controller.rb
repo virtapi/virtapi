@@ -19,7 +19,7 @@ namespace '/vlans' do
 
     patch do
       @vlan.assign_attributes(params[:vlan]).save!
-      redirect to("/vlans/#{@vlan.id}")
+      json :vlan => @vlan
     end
 
     get do

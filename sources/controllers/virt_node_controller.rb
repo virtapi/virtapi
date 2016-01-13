@@ -19,7 +19,7 @@ namespace '/virt_nodes' do
 
     patch do
       @virt_node.assign_attributes(params[:virt_node]).save!
-      redirect to("/virt_node/#{@virt_node.id}")
+      json :virt_node => @virt_node
     end
 
     get do

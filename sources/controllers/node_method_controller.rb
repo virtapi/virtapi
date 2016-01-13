@@ -19,7 +19,7 @@ namespace '/node_methods' do
 
     patch do
       @node_method.assign_attributes(params[:node_method]).save!
-      redirect to("/node_methods/#{@node_method.id}")
+      json :node_method => @node_method
     end
 
     get do

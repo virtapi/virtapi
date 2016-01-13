@@ -19,7 +19,7 @@ namespace '/cache_options' do
 
     patch do
       @cache_option.assign_attributes(params[:cache_option]).save!
-      redirect to("/cache_options/#{@cache_option.id}")
+      json :cache_option => @cache_options
     end
 
     get do

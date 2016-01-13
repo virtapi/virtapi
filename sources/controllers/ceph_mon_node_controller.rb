@@ -19,7 +19,7 @@ namespace '/ceph_mon_nodes' do
 
     patch do
       @ceph_mon_node.assign_attributes(params[:ceph_mon_node]).save!
-      redirect to("/ceph_mon_nodes/#{@ceph_mon_node.id}")
+      json :ceph_mon_node => @ceph_mon_node
     end
 
     get do

@@ -19,7 +19,7 @@ namespace '/domain_states' do
 
     patch do
       @domain_state.assign_attributes(params[:domain_state]).save!
-      redirect to("/domain_states/#{@domain_state.id}")
+      json :domain_state => @domain_state
     end
 
     get do

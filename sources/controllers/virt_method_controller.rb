@@ -19,7 +19,7 @@ namespace '/virt_methods' do
 
     patch do
       @virt_method.assign_attributes(params[:virt_method]).save!
-      redirect to("/virt_methods/#{@virt_method.id}")
+      json :virt_method => @virt_method
     end
 
     get do

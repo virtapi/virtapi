@@ -19,7 +19,7 @@ namespace '/ceph_osd_nodes' do
 
     patch do
       @ceph_osd_node.assign_attributes(params[:ceph_osd_node]).save!
-      redirect to("/ceph_osd_nodes/#{@ceph_osd_node.id}")
+      json :cephosdd_node => @ceph_osd_node
     end
 
     get do

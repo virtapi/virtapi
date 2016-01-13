@@ -19,7 +19,7 @@ namespace '/storages' do
 
     patch do
       @storage.assign_attributes(params[:storage]).save!
-      redirect to("/storages/#{@storage.id}")
+      json :storage => @storage
     end
 
     get do

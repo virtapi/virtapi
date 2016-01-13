@@ -1,13 +1,13 @@
 # Implementing an API to orchestrate a Cloud-Infrastructure
 
-Maintained and created by Tim Meusel
+Maintained and created by [Tim Meusel](https://github.com/bastelfreak/)
 
 Contributors:
-+ Sebastian Rakel
-+ Silvio Knizek
-+ Carsten Menne
-+ Florian Pritz
-+ Robert Müller
++ [Sebastian Rakel](https://github.com/sebastianrakel)
++ [Silvio Knizek](https://github.com/killermoehre)
++ [Carsten Menne](https://github.com/taxus13)
++ [Florian Pritz](https://github.com/Bluewind)
++ [Robert Müller](https://github.com/Flipez)
 
 ---
 

@@ -8,3 +8,7 @@ gem 'puma'
 gem 'logger'
 gem 'rake'
 gem 'haml'
+
+group :development do
+  gem 'rubocop', require: false
+end

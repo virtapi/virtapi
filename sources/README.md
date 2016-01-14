@@ -3,7 +3,7 @@
 ---
 
 ## Set everything up
-* cone the repo
+* clone the repo
 ```bash
 git clone https://github.com/virtapi/virtapi.git
 ```
@@ -30,7 +30,7 @@ bundle exec rake db:seed
 
 * start the webserver
 ```bash
-$ puma -C puma.rb
+$ bundle exec puma -C puma.rb
 [14365] Puma starting in cluster mode...
 [14365] * Version 2.15.3 (ruby 2.3.0-p0), codename: Autumn Arbor Airbrush
 [14365] * Min threads: 0, max threads: 1

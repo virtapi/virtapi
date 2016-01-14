@@ -7,3 +7,10 @@ install:
   - bundle install --retry=3
 script:
   - bundle exec rubocop
+notifications:
+  irc:
+    on_success: change
+    on_failure: always
+    channels:
+      - "irc.freenode.org#virtapi"
+  email: false

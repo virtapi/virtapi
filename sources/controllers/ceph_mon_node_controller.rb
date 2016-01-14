@@ -1,6 +1,6 @@
 namespace '/ceph_mon_nodes' do
   get do
-    return_resource object: CephMonNode.all()
+    return_resource object: CephMonNode.all
   end
 
   post do

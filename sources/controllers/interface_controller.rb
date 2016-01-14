@@ -1,6 +1,6 @@
 namespace '/interfaces' do
   get do
-    return_resource object: Interface.all()
+    return_resource object: Interface.all
   end
 
   post do

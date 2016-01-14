@@ -1,6 +1,6 @@
 namespace '/node_states' do
   get do
-    return_resource object: NodeState.all()
+    return_resource object: NodeState.all
   end
 
   post do

@@ -1,6 +1,6 @@
 namespace '/virt_methods' do
   get do
-    return_resource object: VirtMethod.all()
+    return_resource object: VirtMethod.all
   end
 
   post do

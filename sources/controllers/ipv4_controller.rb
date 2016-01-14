@@ -1,6 +1,6 @@
 namespace '/ipv4s' do
   get do
-    @ipv4s = Ipv4.all()
+    @ipv4s = Ipv4.all
     return_resource object: @ipv4s
   end
 
@@ -26,5 +26,4 @@ namespace '/ipv4s' do
       return_resource object: @ipv4
     end
   end
-
 end

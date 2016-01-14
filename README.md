@@ -32,6 +32,7 @@ Contributors:
 + [Contact](#contact)
 + [Contribution](#contribution)
 + [Links and Sources](#links-and-sources)
++ [The Docs as PDF](#the-docs-as-pdf)
 
 ---
 
@@ -136,3 +137,19 @@ We've defined our contribution rules in [CONTRIBUTING.md](CONTRIBUTING.md).
 + [Using Rails Rake Tasks in Sinatra 1](https://gist.github.com/drogus/6087979)
 + [Using Rails Rake Tasks in Sinatra 2](https://gist.github.com/abhiramm/6541592)
 + [Dealing with json in Sinatra](http://www.sinatrarb.com/contrib/json.html)
+
+---
+
+## The Docs as PDF
+We provide a simple [Makefile](https://github.com/virtapi/virtapi/blob/master/Makefile) which uses pandoc to build a nice pdf based on our README.md files. Here is a small snippet to install pandoc with cabal on Arch and building the PDF:
+```bash
+pacman -Syu cabal-install
+cabal sandbox init
+cabal update
+cabal install pandoc
+git clone https://github.com/virtapi/virtapi.git
+cd virtapi
+make
+```
+
+the PDF is now available at build/virtapi.pdf, the Makefile won't modify any of the files, they get copied to build/ before any modification. The build/ directory is mentioned in the .gitigore file.

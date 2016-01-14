@@ -1,10 +1,10 @@
-#environment 'production'
+# environment 'production'
 
 pidfile 'puma.pid'
 
-threads 0,1
+threads 0, 1
 workers 1
 
-#daemonize true
+# daemonize true
 
 bind 'tcp://127.0.0.1:4568'

@@ -15,7 +15,7 @@ Contributors:
 + [Project description](#project-description)
     - [Node](#node)
     - [Roles](#roles)
-        - [Role hypervisor](#hypervisor)
+        - [Role Hypervisor](#hypervisor)
         - [Role Ceph OSD node](#ceph-osd-node)
         - [Role Ceph Mon Node](#ceph-mon-node)
     - [Cloud instances](#cloud-instances)
@@ -45,7 +45,7 @@ Every physical server is described as a resource from the type node (table **nod
 ### Roles
 Every node must have at least one role, the role resource saves the primary key of the node and implements a specific feature on a node (hypervisor, Ceph OSD node...). Each node can implement multipe and even all roles. A role adds not only the role itself but also additional attributes.
 
-#### hypervisor
+#### Hypervisor
 This resource (table **virt_node**) implements one or multiple virtualization technologies (table **virt_method**) which are referenced as a N:M relationship (table **node_method**). Each hypervisor has multiple attributes (local storage capacity, the path to a directory for local image files or the LVM2 volume group name for local LVs). He supports multiple local storage formats for virtual machines, they are: QCOW2, RAW and LVM2 LVs. Information about shared storage (table **storage_ceph**) and the block devices for virtual machines (table **storage**) have no direct relation to a hypervisor.
 
 #### Ceph OSD node

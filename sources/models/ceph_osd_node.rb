@@ -1,3 +1,2 @@
 class CephOsdNode < Node
-
 end

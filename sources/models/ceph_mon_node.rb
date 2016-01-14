@@ -1,3 +1,2 @@
 class CephMonNode < Node
-
 end

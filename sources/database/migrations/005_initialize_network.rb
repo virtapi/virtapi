@@ -20,7 +20,7 @@ class InitializeNetwork < ActiveRecord::Migration
     create_table :ipv4s do |t|
       t.timestamps null: false
       t.belongs_to :interface, index: true
-      t.boolean :discard
+      t.string :ip
     end
     add_index :ipv4s, :ip, :unique => true
 

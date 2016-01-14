@@ -1,6 +1,6 @@
 namespace '/vlans' do
   get do
-    return_resource object: Vlan.all()
+    return_resource object: Vlan.all
   end
 
   post do

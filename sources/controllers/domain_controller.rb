@@ -1,6 +1,6 @@
 namespace '/domains' do
   get do
-    return_resource object: Domain.all()
+    return_resource object: Domain.all
   end
 
   post do

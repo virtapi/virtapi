@@ -1,6 +1,6 @@
 namespace '/storages' do
   get do
-    return_resource object: Storage.all()
+    return_resource object: Storage.all
   end
 
   post do

@@ -1,6 +1,6 @@
 namespace '/cache_options' do
   get do
-    return_resource object: CacheOption.all()
+    return_resource object: CacheOption.all
   end
 
   post do
@@ -22,7 +22,7 @@ namespace '/cache_options' do
     end
 
     get do
-     return_resource object: @cache_options
+      return_resource object: @cache_options
     end
   end
 end

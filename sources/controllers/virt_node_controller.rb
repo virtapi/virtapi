@@ -1,6 +1,6 @@
 namespace '/virt_nodes' do
   get do
-    return_resource object: VirtNpde.all()
+    return_resource object: VirtNpde.all
   end
 
   post do

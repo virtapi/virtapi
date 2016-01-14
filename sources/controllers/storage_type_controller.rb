@@ -1,6 +1,6 @@
 namespace '/storage_types' do
   get do
-    return_resource object: StorageType.all()
+    return_resource object: StorageType.all
   end
 
   post do

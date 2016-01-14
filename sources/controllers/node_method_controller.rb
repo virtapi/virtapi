@@ -1,6 +1,6 @@
 namespace '/node_methods' do
   get do
-    return_resource object: NodeMethod.all()
+    return_resource object: NodeMethod.all
   end
 
   post do

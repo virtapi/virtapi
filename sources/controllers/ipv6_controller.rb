@@ -1,6 +1,6 @@
 namespace '/ipv6s' do
   get do
-    return_resource object: Ipv6.all()
+    return_resource object: Ipv6.all
   end
 
   post do

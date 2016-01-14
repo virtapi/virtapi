@@ -1,6 +1,6 @@
 namespace '/domain_states' do
   get do
-    return_resource object: DomainState.all()
+    return_resource object: DomainState.all
   end
 
   post do

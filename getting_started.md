@@ -17,13 +17,11 @@ bundle install
 
 * setup the database (Todo: use rake tasks)
 ```bash
-cd sources/
-for i in ../database/migrations/*.rb; do ruby $i up; done
+for i in database/migrations/*.rb; do ruby $i up; done
 ```
 
 * Import seed data (data that is needed to run the app)
 ```bash
-cd sources
 bundle exec rake db:seed
 [much output....]
 ```

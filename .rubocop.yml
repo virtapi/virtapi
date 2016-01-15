@@ -26,9 +26,6 @@ Metrics/MethodLength:
 Metrics/ClassLength:
   Enabled: false
 
-# dealbreaker:
-Style/TrailingComma:
-  Enabled: false
 Style/ClosingParenthesisIndentation:
   Enabled: false
 

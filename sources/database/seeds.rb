@@ -8,7 +8,7 @@ cache_options = [
   ['none', 'nobody knows'],
   ['writethrough', 'do not use the cache'],
   ['writeback', 'use the cache'],
-  ['directsync' 'even ignore page cache'],
+  ['directsync', 'even ignore page cache'],
   ['unsafe', 'cache allll the things, ignore sync() requests']
 ]
 cache_options.each do |option|
@@ -35,7 +35,7 @@ state_list = [
   ['stopped', 'node is stopped'],
   ['running', 'node is running'],
   ['deactivated', 'someone disabled this node'],
-  ['maintenance' 'there is currently maintenance going on']
+  ['maintenance', 'there is currently maintenance going on']
 ]
 state_list.each do |state|
   NodeState.create(name: state[0], description: state[1])
@@ -46,7 +46,7 @@ state_list = [
   ['stopped', 'domain is stopped'],
   ['running', 'domain is running'],
   ['deactivated', 'an admin disabled this domain'],
-  ['maintenance' 'there is currently maintenance on the host system, keep calm']
+  ['maintenance', 'there is currently maintenance on the host system, keep calm']
 ]
 state_list.each do |state|
   DomainState.create(name: state[0], description: state[1])

@@ -41,13 +41,12 @@ git clone https://github.com/virtapi/virtapi.git
 ```bash
 gem install bundler
 cd virtapi
-bundle install
+bundle install --path vendor
 ```
 
 ### Setup the Database
 ```bash
-cd sources
-for i in databases/migrations/*.rb; do ruby $i up; done
+for i in database/migrations/*.rb; do ruby $i up; done
 ```
 
 ### Import Seed Data

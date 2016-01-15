@@ -1,3 +1,7 @@
+# "This will automatically discover your Gemfile, and make all of the gems in
+# your Gemfile available to Ruby." http://bundler.io/rationale.html
+require 'bundler/setup'
+
 require 'sinatra'
 require 'sinatra/contrib'
 require 'sinatra/logger'

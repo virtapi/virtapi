@@ -12,7 +12,7 @@ git clone https://github.com/virtapi/virtapi.git
 ```bash
 gem install bundler
 cd virtapi
-bundle install
+bundle install --path vendor
 ```
 
 * setup the database (Todo: use rake tasks)

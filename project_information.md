@@ -15,8 +15,9 @@
     - [Models](#models)
     - [Puma](#puma)
     - [ActiveRecord](#activerecord)
+    - [Testing](#testing)
 + [Current State](#current-state)
-+   - [Costs and stats](#costs-and-stats)
+    - [Costs and stats](#costs-and-stats)
 
 ---
 
@@ -88,6 +89,8 @@ rake db:setup               # Create the database, load the schema, and initiali
 rake db:structure:dump      # Dump the database structure to db/structure.sql
 rake db:structure:load      # Recreate the databases from the structure.sql file
 rake db:version             # Retrieves the current schema version number
+rake rubocop                # Run RuboCop
+rake rubocop:auto_correct   # Auto-correct RuboCop offenses
 ```
 
 ---
@@ -236,6 +239,37 @@ This adds data to all the relevant tables, also we autogenerate the vlans. This 
 ```ruby
 bundle exec rake db:seed
 ```
+
+### Testing
+[RuboCop](https://github.com/bbatsov/rubocop/blob/master/README.md) is a Ruby static code analyzer based on the [community style guide](https://github.com/bbatsov/ruby-style-guide). You can simply run it with:
+```bash
+ $ rubocop
+ Inspecting 42 files
+ ..........................................
+
+ 42 files inspected, no offenses detected
+```
+
+but this requires rubocop to be installed in your global $PATH. We ship it in our development environment so we can use it through bundler \o/
+```bash
+bundle exec rubocop
+```
+
+and even more awesome: we also provide a Rake task for RuboCop. Why is this awesome? Because Rake allows us to easily combine multiple tasks into one command + setting up the needed infra that we need for these tasks. This means that we can easily write further tests in the future (unit and acceptance tests), create a task for each test, and trigger these tasts with our CI infrastructure. You can start the task with:
+```bash
+bundle exec rake rubocop
+```
+
+How did we create this task?
+This is very simple, it requires the RuboCop and the Rake Gem installed, we've already both in our [Gemfile](https://github.com/virtapi/virtapi/blob/master/Gemfile), so we are safe here. the RuboCop Devs are kind enough to provide a working task, we just have to import it, therefor we need these two lines in our [Rakefile](https://github.com/virtapi/virtapi/blob/master/Rakefile) (require the lib, create the task):
+```ruby
+require 'rubocop/rake_task'
+RuboCop::RakeTask.new
+```
+
+What is CI?
+Ci is this awesome thing called "Continuous Integration", Every change on this project will be contributed via a seperate git branch. We host the code on github.com, the site allows easy integration into [travis-CI](https://travis-ci.org/virtapi/virtapi) which is a free platform for running your tests (if you accept that the results are public available). Each change triggers Travis (this was meant by the "Continuous") to kick of a Ubuntu container which installs the gems defined in our Gemfile, than runs our Rake tasks. This provides us fast feedback (this was meant by the "Integration") in each Pull Request:
+![screenshot of a PR showing travis results][https://p.bastelfreak.de/ZjUjFU/]
 
 ---
 

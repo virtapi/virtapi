@@ -1,7 +1,9 @@
 require 'yaml'
 require 'logger'
 require 'active_record'
+require 'rubocop/rake_task'
 
+# configure ActiveRecord Tasks
 include ActiveRecord::Tasks
 
 class Seeder
@@ -31,3 +33,6 @@ task :environment do
 end
 
 load 'active_record/railties/databases.rake'
+
+# configure RuboCop Tasks
+RuboCop::RakeTask.new

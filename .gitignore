@@ -4,3 +4,4 @@ database/workbench/virtapi.mwb.bak
 Gemfile.lock
 dbfile.sqlite
 puma.pid
+.bundle/

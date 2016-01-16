@@ -1,6 +1,6 @@
 require_relative '../../virtapi_app.rb'
 
-class InitializeStorage < ActiveRecord::Migration
+class InitializeCeph < ActiveRecord::Migration
   def up
     create_table :ceph_osd_nodes do |t|
       t.timestamps null: false
@@ -25,4 +25,4 @@ class InitializeStorage < ActiveRecord::Migration
   end
 end
 
-InitializeStorage.migrate(ARGV[0])
+InitializeCeph.migrate(ARGV[0])

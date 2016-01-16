@@ -1,3 +1,7 @@
+# "This will automatically discover your Gemfile, and make all of the gems in
+# your Gemfile available to Ruby." http://bundler.io/rationale.html
+require 'bundler/setup'
+
 require 'sinatra'
 require 'sinatra/contrib'
 require 'sinatra/logger'
@@ -19,8 +23,8 @@ ActiveRecord::Base.establish_connection @dbconfig[@environment]
 # manual style
 # ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: "#{__dir__}/dbfile.sqlite")
 
-before /.*/ do
-  if request.path_info.match(/.json$/)
+before /.*/ do # rubocop:disable Lint/AmbiguousRegexpLiteral
+  if /.json$/ =~ request.path_info
     content_type :json, 'charset' => 'utf-8'
     request.accept.unshift('application/json')
     request.path_info = request.path_info.gsub(/.json$/, '')

@@ -97,15 +97,15 @@ ActiveRecord::Schema.define(version: 6) do
   add_index "ipv6s", ["interface_id"], name: "index_ipv6s_on_interface_id"
   add_index "ipv6s", ["ip"], name: "index_ipv6s_on_ip", unique: true
 
-  create_table "node_method", force: :cascade do |t|
+  create_table "node_methods", force: :cascade do |t|
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "virt_node_id"
     t.integer  "virt_method_id"
   end
 
-  add_index "node_method", ["virt_method_id"], name: "index_node_method_on_virt_method_id"
-  add_index "node_method", ["virt_node_id"], name: "index_node_method_on_virt_node_id"
+  add_index "node_methods", ["virt_method_id"], name: "index_node_methods_on_virt_method_id"
+  add_index "node_methods", ["virt_node_id"], name: "index_node_methods_on_virt_node_id"
 
   create_table "node_states", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -166,10 +166,13 @@ ActiveRecord::Schema.define(version: 6) do
   create_table "virt_nodes", force: :cascade do |t|
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "node_id"
     t.integer  "local_storage_gb"
     t.string   "vg_name"
     t.string   "local_storage_path"
   end
+
+  add_index "virt_nodes", ["node_id"], name: "index_virt_nodes_on_node_id"
 
   create_table "vlans", force: :cascade do |t|
     t.datetime "created_at",   null: false

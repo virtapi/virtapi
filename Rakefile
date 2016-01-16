@@ -21,10 +21,10 @@ end
 root = File.expand_path '..', __FILE__
 DatabaseTasks.env = ENV['ENV'] || 'development'
 DatabaseTasks.database_configuration = YAML.load(File.read(File.join(root, 'config/database.yml')))
-DatabaseTasks.db_dir = File.join root, 'db'
+DatabaseTasks.db_dir = File.join root, 'database'
 DatabaseTasks.fixtures_path = File.join root, 'test/fixtures'
-DatabaseTasks.migrations_paths = [File.join(root, '../database/migrations')]
-DatabaseTasks.seed_loader = Seeder.new File.join root, '../database/seeds.rb'
+DatabaseTasks.migrations_paths = [File.join(root, 'database/migrations')]
+DatabaseTasks.seed_loader = Seeder.new File.join root, 'database/seeds.rb'
 DatabaseTasks.root = root
 
 task :environment do

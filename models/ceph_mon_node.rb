@@ -1,2 +1,3 @@
-class CephMonNode < Node
+class CephMonNode < ActiveRecord::Base
+  belongs_to :node
 end

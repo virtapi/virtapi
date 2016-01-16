@@ -12,4 +12,8 @@ gem 'haml'
 group :development do
   gem 'rubocop', require: false
   gem 'pry', require: false
+  # workaround for missing dependency in haml-lint
+  # https://github.com/brigade/haml-lint/pull/106
+  gem 'astrolabe', require: false
+  gem 'haml-lint', require: false
 end

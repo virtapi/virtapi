@@ -2,6 +2,7 @@ require 'yaml'
 require 'logger'
 require 'active_record'
 require 'rubocop/rake_task'
+require 'haml_lint/rake_task'
 
 # configure ActiveRecord Tasks
 include ActiveRecord::Tasks
@@ -35,3 +36,12 @@ load 'active_record/railties/databases.rake'
 
 # configure RuboCop Tasks
 RuboCop::RakeTask.new
+
+# configure Haml Linter
+HamlLint::RakeTask.new do |t|
+  t.files = ['views/*.haml']
+end
+
+# create a custom Task that loops through all tests
+desc 'Run RuboCop and Haml-Linter'
+task test: [:rubocop, :haml_lint]

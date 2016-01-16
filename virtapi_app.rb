@@ -5,7 +5,7 @@ require 'bundler/setup'
 require 'sinatra'
 require 'sinatra/contrib'
 require 'sinatra/logger'
-require 'haml'
+require 'tilt/haml'
 require 'json'
 require 'active_record'
 

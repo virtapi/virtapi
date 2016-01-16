@@ -1,10 +1,12 @@
 namespace '/interfaces' do
   get do
-    return_resource object: Interface.all
+    @interfaces = Interface.all
+    return_resource object: @interfaces
   end
 
   post do
-    return_resource object: Interface.create!(params[:interface])
+    @interface = Interface.create!(params[:interface])
+    return_resource object: @interface
   end
 
   before %r{\A/(?<id>\d+)/?.*} do

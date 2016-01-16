@@ -1,10 +1,12 @@
 namespace '/ceph_osd_nodes' do
   get do
-    return_resource object: CephOsdNode.all
+    @ceph_osd_nodes = CephOsdNode.all
+    return_resource object: @ceph_osd_nodes
   end
 
   post do
-    return_resource object: CephOsdNode.create!(params[:ceph_osd_node])
+    @ceph_osd_node = CephOsdNode.create!(params[:ceph_osd_node])
+    return_resource object: @ceph_osd_node
   end
 
   before %r{\A/(?<id>\d+)/?.*} do

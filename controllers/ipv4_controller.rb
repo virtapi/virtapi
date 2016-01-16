@@ -5,7 +5,8 @@ namespace '/ipv4s' do
   end
 
   post do
-    return_resource object: Ipv4.create!(params[:ipv4])
+    @ipv4 = Ipv4.create!(params[:ipv4])
+    return_resource object: @ipv4
   end
 
   before %r{\A/(?<id>\d+)/?.*} do

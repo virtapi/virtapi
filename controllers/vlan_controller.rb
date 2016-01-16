@@ -1,10 +1,12 @@
 namespace '/vlans' do
   get do
-    return_resource object: Vlan.all
+    @vlans = Vlan.all
+    return_resource object: @vlans
   end
 
   post do
-    return_resource object: Vlan.create!(params[:vlan])
+    @vlan = Vlan.create!(params[:vlan])
+    return_resource object: @vlan
   end
 
   before %r{\A/(?<id>\d+)/?.*} do

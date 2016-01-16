@@ -1,10 +1,12 @@
 namespace '/storage_types' do
   get do
-    return_resource object: StorageType.all
+    @storage_types = StorageType.all
+    return_resource object: @storage_types
   end
 
   post do
-    return_resource object: StorageType.create!(params[:storage_type])
+    @storage_type = StorageType.create!(params[:storage_type])
+    return_resource object: @storage_type
   end
 
   before %r{\A/(?<id>\d+)/?.*} do

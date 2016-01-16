@@ -1,10 +1,12 @@
 namespace '/node_methods' do
   get do
-    return_resource object: NodeMethod.all
+    @node_methods = NodeMethod.all
+    return_resource object: @node_methods
   end
 
   post do
-    return_resource object: NodeMethod.create!(params[:node_method])
+    @node_method = NodeMethod.create!(params[:node_method])
+    return_resource object: @node_method
   end
 
   before %r{\A/(?<id>\d+)/?.*} do

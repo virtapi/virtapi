@@ -1,10 +1,12 @@
 namespace '/node_states' do
   get do
-    return_resource object: NodeState.all
+    @node_states = NodeState.all
+    return_resource object: @node_states
   end
 
   post do
-    return_resource object: NodeState.create!(params[:node_state])
+    @node_states = NodeState.create!(params[:node_state])
+    return_resource object: @node_state
   end
 
   before %r{\A/(?<id>\d+)/?.*} do

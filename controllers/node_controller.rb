@@ -5,7 +5,8 @@ namespace '/nodes' do
   end
 
   post do
-    return_resource object: Node.create!(params[:node])
+    @node = Node.create!(params[:node])
+    return_resource object: @node
   end
 
   before %r{\A/(?<id>\d+)/?.*} do

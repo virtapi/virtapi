@@ -1,10 +1,12 @@
 namespace '/ipv6s' do
   get do
-    return_resource object: Ipv6.all
+    @ipv6s = Ipv6.all
+    return_resource object: @ipv6s
   end
 
   post do
-    return_resource object: Ipv6.create!(params[:ipv6])
+    @ipv6 = Ipv6.create!(params[:ipv6])
+    return_resource object: @ipv6
   end
 
   before %r{\A/(?<id>\d+)/?.*} do

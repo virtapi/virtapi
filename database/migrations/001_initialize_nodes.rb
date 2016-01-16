@@ -1,6 +1,6 @@
 require_relative '../../virtapi_app.rb'
 
-class InitializeNodeTable < ActiveRecord::Migration
+class InitializeNodes < ActiveRecord::Migration
   def up
     create_table :nodes do |t|
       t.timestamps null: false
@@ -17,4 +17,4 @@ class InitializeNodeTable < ActiveRecord::Migration
   end
 end
 
-InitializeNodeTable.migrate(ARGV[0])
+InitializeNodes.migrate(ARGV[0])

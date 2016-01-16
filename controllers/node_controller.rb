@@ -1,6 +1,7 @@
 namespace '/nodes' do
   get do
-    return_resource object: Node.all
+    @nodes = Node.all
+    return_resource object: @nodes
   end
 
   post do

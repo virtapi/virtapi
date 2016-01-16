@@ -1,0 +1,20 @@
+%h1
+  Nodes
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= 'fqdn'
+      %th= 'nodes.columns.location'
+      %th= 'nodes.columns.state'
+      %th= 'nodes.columns.created_at'
+      %th= 'nodes.columns.updated_at'
+
+  %tbody
+    - @nodes.each do |node|
+      %tr
+        %td= node.fqdn
+        %td= node.location
+        %td= node.node_state.name
+        %td= node.created_at
+        %td= node.updated_at

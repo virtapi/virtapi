@@ -7,7 +7,7 @@ rvm:
 install:
   - bundle install --retry=3
 script:
-  - bundle exec rake rubocop
+  - bundle exec rake test
 notifications:
   irc:
     on_success: change

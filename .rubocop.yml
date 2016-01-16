@@ -1,6 +1,9 @@
 AllCops:
   Include:
-    - ./**/*.rb
+    - Rakefile
+    - config.ru
+  Exclude:
+    - database/schema.rb
 
 # Configuration parameters: AllowURI, URISchemes.
 Metrics/LineLength:

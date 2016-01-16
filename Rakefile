@@ -12,11 +12,10 @@ class Seeder
   end
 
   def load_seed
-    raise "Seed file '#{@seed_file}' does not exist" unless File.file?(@seed_file)
+    fail "Seed file '#{@seed_file}' does not exist" unless File.file?(@seed_file)
     load @seed_file
   end
 end
-
 
 root = File.expand_path '..', __FILE__
 DatabaseTasks.env = ENV['ENV'] || 'development'

@@ -1,5 +1,5 @@
 build/
-vendor/
+.vendor/
 database/workbench/virtapi.mwb.bak
 Gemfile.lock
 dbfile.sqlite

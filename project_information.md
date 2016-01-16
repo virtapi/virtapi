@@ -42,7 +42,7 @@ git clone https://github.com/virtapi/virtapi.git
 ```bash
 gem install bundler
 cd virtapi
-bundle install --path vendor
+bundle install --path .vendor
 ```
 
 ### Setup the Database

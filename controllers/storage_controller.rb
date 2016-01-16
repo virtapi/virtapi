@@ -1,10 +1,12 @@
 namespace '/storages' do
   get do
-    return_resource object: Storage.all
+    @storages = Storage.all
+    return_resource object: @storages
   end
 
   post do
-    return_resource object: Storage.create!(params[:storage])
+    @storage = Storage.create!(params[:storage])
+    return_resource object: @storage
   end
 
   before %r{\A/(?<id>\d+)/?.*} do

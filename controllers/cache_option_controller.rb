@@ -1,10 +1,12 @@
 namespace '/cache_options' do
   get do
-    return_resource object: CacheOption.all
+    @cache_options = CacheOption.all
+    return_resource object: @cache_options
   end
 
   post do
-    return_resource object: CacheOption.create!(params[:cache_option])
+    @cache_option = CacheOption.create!(params[:cache_option])
+    return_resource object: @cache_option
   end
 
   before %r{\A/(?<id>\d+)/?.*} do
@@ -18,11 +20,11 @@ namespace '/cache_options' do
 
     patch do
       @cache_option.assign_attributes(params[:cache_option]).save!
-      return_resource object: @cache_options
+      return_resource object: @cache_option
     end
 
     get do
-      return_resource object: @cache_options
+      return_resource object: @cache_option
     end
   end
 end

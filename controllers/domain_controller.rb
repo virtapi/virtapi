@@ -1,10 +1,12 @@
 namespace '/domains' do
   get do
-    return_resource object: Domain.all
+    @domains = Domain.all
+    return_resource object: @domains
   end
 
   post do
-    return_resource object: Domain.create!(params[:domain])
+    @domain = Domain.create!(params[:domain])
+    return_resource object: @domain
   end
 
   before %r{\A/(?<id>\d+)/?.*} do

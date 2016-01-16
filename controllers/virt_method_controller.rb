@@ -1,10 +1,12 @@
 namespace '/virt_methods' do
   get do
-    return_resource object: VirtMethod.all
+    @virt_methods = VirtMethod.all
+    return_resource object: @virt_methods
   end
 
   post do
-    return_resource object: VirtMethod.create!(params[:virt_method])
+    @virt_method = VirtMethod.create!(params[:virt_method])
+    return_resource object: @virt_method
   end
 
   before %r{\A/(?<id>\d+)/?.*} do

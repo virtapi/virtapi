@@ -1,10 +1,12 @@
 namespace '/domain_states' do
   get do
-    return_resource object: DomainState.all
+    @domain_states = DomainState.all
+    return_resource object: @domain_states
   end
 
   post do
-    return_resource object: DomainState.create!(params[:domain_state])
+    @domain = DomainState.create!(params[:domain_state])
+    return_resource object: @domain
   end
 
   before %r{\A/(?<id>\d+)/?.*} do

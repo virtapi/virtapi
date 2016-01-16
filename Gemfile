@@ -12,4 +12,5 @@ gem 'haml'
 group :development do
   gem 'rubocop', require: false
   gem 'pry', require: false
+  gem 'haml-lint', require: false
 end

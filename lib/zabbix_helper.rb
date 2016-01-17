@@ -1,4 +1,4 @@
-module ZabbixHelper
+module ZabbixHelper # rubocop:disable Metrics/ModuleLength
   def initialize
     @api = settings.zabbix
     @con = zbx_api_connect

@@ -14,7 +14,7 @@ require 'active_record'
 # TODO: define a hierarchy of models to load
 
 require_relative 'models/node.rb'
-Dir.glob('./{models,controllers,lib}/*.rb').each { |file| require file }
+Dir.glob('./{lib,models,controllers}/*.rb').each { |file| require file }
 
 @environment = ENV['RACK_ENV'] || 'development'
 @dbconfig = YAML.load(File.read('config/database.yml'))

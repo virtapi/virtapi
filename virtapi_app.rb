@@ -5,6 +5,7 @@ require 'bundler/setup'
 require 'sinatra'
 require 'sinatra/contrib'
 require 'sinatra/logger'
+require 'sinatra/config_file'
 require 'tilt/haml'
 require 'json'
 require 'active_record'
@@ -23,6 +24,12 @@ ActiveRecord::Base.establish_connection @dbconfig[@environment]
 # manual style
 # ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: "#{__dir__}/dbfile.sqlite")
 
+# load a config file (provided by sinatra-contrib)
+# http://www.sinatrarb.com/contrib/config_file.html
+config_file 'config/appconfig.yml'
+
+# match request type, we do json encoding with the request ends with .json
+# we do html otherwise
 before /.*/ do # rubocop:disable Lint/AmbiguousRegexpLiteral
   if /.json$/ =~ request.path_info
     content_type :json, 'charset' => 'utf-8'

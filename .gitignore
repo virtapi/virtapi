@@ -6,3 +6,4 @@ dbfile.sqlite
 puma.pid
 .bundle/
 .*.swp
+config/appconfig.yml

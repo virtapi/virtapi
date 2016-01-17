@@ -1,0 +1,32 @@
+---
+development: &common_settings
+  puppet:
+    :api_url: 'https://puppetapi.localhost'
+    :api_version: 'v3'
+    :api_node: 'nodes'
+    :api_ca: '/etc/something/ca.pem'
+  zabbix:
+    :api_url: 'http://zabbix.localhost/api_jsonrpc.php'
+    :api_user: 'zabbix_api'
+    :api_pw: 'thisissofuckingsecure'
+    :interface_types:
+      :agent: 1
+      :snmp: 2
+      :ipmi: 3
+      :jmx: 4
+  :snmp_port: 161
+  :ipmi_port: 623
+  :drac8:
+    - 'PowerEdge R630'
+  :drac7:
+    - 'PowerEdge R730'
+    - 'PowerEdge R720xd'
+    - 'PowerEdge R720'
+    - 'PowerEdge R620'
+  :drac6:
+    - 'PowerEdge R510'
+    - 'PowerEdge R610'
+
+production:
+  <<: *common_settings
+

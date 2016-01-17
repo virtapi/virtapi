@@ -1,6 +1,6 @@
 # ruby encoding: utf-8
 
-require "#{__dir__}/../sources/virtapi_app.rb"
+require "#{__dir__}/../virtapi_app.rb"
 
 # Create all Cache Options for storage
 cache_options = [

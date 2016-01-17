@@ -8,6 +8,8 @@ gem 'puma'
 gem 'logger'
 gem 'rake'
 gem 'haml'
+gem 'zabbixapi'
+gem 'json'
 
 group :development do
   gem 'rubocop', require: false

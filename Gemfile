@@ -8,6 +8,8 @@ gem 'puma'
 gem 'logger'
 gem 'rake'
 gem 'haml'
+gem 'zabbixapi'
+gem 'json'
 
 group :development do
   gem 'rubocop', require: false
@@ -16,4 +18,5 @@ group :development do
   # https://github.com/brigade/haml-lint/pull/106
   gem 'astrolabe', require: false
   gem 'haml-lint', require: false
+  gem 'yamllint', require: false
 end

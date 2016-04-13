@@ -14,7 +14,7 @@ class Seeder
   end
 
   def load_seed
-    fail "Seed file '#{@seed_file}' does not exist" unless File.file?(@seed_file)
+    raise "Seed file '#{@seed_file}' does not exist" unless File.file?(@seed_file)
     load @seed_file
   end
 end

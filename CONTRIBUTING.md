@@ -1,4 +1,8 @@
 # Checklist for contributing
+This module has grown over time based on a range of contributions from
+people using it. If you follow these contributing guidelines your patch
+will likely make it into a release a little quicker.
+Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms. [Contributor Code of Conduct](code_of_conduct.md).
 
 ---
 
@@ -41,4 +45,4 @@ Please break your commits down into logically consistent units which include new
 ### Update the related GitHub issue.
 If there is a GitHub issue associated with the change you submitted, then you should update the ticket to include the location of your branch, along with any other commentary you may wish to make.
 
-This guide is based on the CONTRIBUTING.md from Puppetlabs Inc.
+This guide is based on the CONTRIBUTING.md from Puppetlabs Inc and Vox Pupuli.

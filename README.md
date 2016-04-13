@@ -33,11 +33,15 @@ Contributors:
 + [Contribution](#contribution)
 + [Links and Sources](#links-and-sources)
 + [The Docs as PDF](#the-docs-as-pdf)
++ [Issues](#issues)
++ [License](#license)
++ [Contact](#contact)
++ [Contribution](#contribution)
 
 ---
 
 ## Project description
-This project aims to provide an open-source API to orchastrate a dynamic cloud infrastructure. The API is licensed under the [GNU Affero General Public License](LICENSE).The goal is to not only manage the host systems, but also the virtual machines itself and storage nodes (ceph) to provide an all-in-one solution that is flexible enough to handle several thousand machines and multiple different virtualization technologies. The API has a focus on secure development to provide an interface for direct customer contact. A description of one possible infrastructure design is available [here](cloud_infrastructure.md). Here is a detailed description for all resources (visualised at [Entity Relationship Model](#entity-relationship-model)):
+This project aims to provide an open-source API to orchastrate a dynamic cloud infrastructure. The goal is to not only manage the host systems, but also the virtual machines itself and storage nodes (ceph) to provide an all-in-one solution that is flexible enough to handle several thousand machines and multiple different virtualization technologies. The API has a focus on secure development to provide an interface for direct customer contact. A description of one possible infrastructure design is available [here](cloud_infrastructure.md). Here is a detailed description for all resources (visualised at [Entity Relationship Model](#entity-relationship-model)):
 
 ### Node
 Every physical server is described as a resource from the type node (table **node**). Each node has several attributes (multiple IP-Addresses, FQDN...). The IP attributes are mandatory. A node also needs a defined state (attribute **state_id**, table **node_state**), examples are "running", "in maintenance".
@@ -110,16 +114,6 @@ You can find the latest ERD from the current branch [here](sources/database/imag
 
 ---
 
-## Contact
-You can meet us in #virtapi at freenode.
-
----
-
-## Contribution
-We've defined our contribution rules in [CONTRIBUTING.md](CONTRIBUTING.md).
-
----
-
 ## Links and Sources
 + [API Design Guide](https://github.com/interagent/http-api-design)
 + [Ceph Talk at GPN15](https://media.ccc.de/browse/conferences/gpn/gpn15/gpn15-6629-ceph.html#video)
@@ -153,3 +147,23 @@ make
 ```
 
 the PDF is now available at build/virtapi.pdf, the Makefile won't modify any of the files, they get copied to build/ before any modification. The build/ directory is mentioned in the .gitigore file.
+
+---
+
+## Issues
+[Github Issues](https://www.github.com/virtapi/virtapi/issues)
+
+---
+
+## License
+The API is licensed under the [GNU Affero General Public License](LICENSE)
+
+---
+
+## Contact
+You can meet us in #virtapi at freenode.
+
+---
+
+## Contribution
+We've defined our contribution rules in [CONTRIBUTING.md](CONTRIBUTING.md).

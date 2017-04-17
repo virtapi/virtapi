@@ -17,7 +17,7 @@ Dir.glob('./{models,controllers,lib}/*.rb').each { |file| require file }
 
 @environment = ENV['RACK_ENV'] || 'development'
 @dbconfig = YAML.load(File.read('config/database.yml'))
-ActiveRecord::Base.logger = Logger.new(STDERR)
+ActiveRecord::Base.logger = Logger.new(STDOUT)
 ActiveRecord::Base.establish_connection @dbconfig[@environment]
 
 # manual style
